@@ -13,5 +13,6 @@ cp vimrc ~/.vimrc
 
 ```bash
 #replace source.list
-mv /etc/apt/sources.list /etc/apt/sources.list.old
-cp sources.list /etc/apt/sources.list
+sudo mv /etc/apt/sources.list /etc/apt/sources.list.old
+sudo cp sources.list /etc/apt/sources.list
+sudo apt-get update
