@@ -13,5 +13,5 @@ cp vimrc ~/.vimrc
 
 ```bash
 #replace source.list
-mv ~/etc/apt/source.list ~/etc/apt/source.list.old
-cp source.list ~/etc/apt/source.list
+mv /etc/apt/source.list /etc/apt/source.list.old
+cp source.list /etc/apt/source.list
