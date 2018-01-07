@@ -8,3 +8,10 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 mv ~/.vimrc ~/.vimrc.old
 cp vimrc ~/.vimrc
  ```
+
+#source list
+
+```bash
+#replace source.list
+mv ~/etc/apt/source.list ~/etc/apt/source.list.old
+cp source.list ~/etc/apt/source.list
