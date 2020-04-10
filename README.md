@@ -11,11 +11,14 @@ cp vimrc ~/.vimrc
 
 #source list
 
+##从官网获取源
+<https://mirror.tuna.tsinghua.edu.cn/help/ubuntu>
 ```bash
-#replace source.list
+#backup source
 sudo mv /etc/apt/sources.list /etc/apt/sources.list.old
-#从官网获取源
-https://mirror.tuna.tsinghua.edu.cn/help/ubuntu
-
+#update
 sudo apt-get update
 ```
+
+#proxychains
+sudo apt-get install proxychains
