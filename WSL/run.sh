@@ -10,7 +10,7 @@ I_JAVA="false"
 TLS_name=$(awk '{print $1}' /etc/issue) #Ubuntu
 TLS_version=$(awk '{print $2}' /etc/issue) #18.04.4
 
-current_path=$(dirname "$0")
+current_path=$(dirname '$0')
 
 cd current_path
 
