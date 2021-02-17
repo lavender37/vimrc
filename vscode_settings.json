@@ -16,7 +16,7 @@
         "%PDF%",
         "%TEX%"
     ],
-
+    // "C:\Program Files\Microsoft VS Code\Code.exe" "C:\Program Files\Microsoft VS Code\resources\app\out\cli.js" -g "%f":"%l"
     "latex-workshop.latex.recipes": [
         {
             "name": "XeLaTeX",
