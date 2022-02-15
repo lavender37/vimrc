@@ -1,6 +1,6 @@
 ﻿##AddModifiedTimeToTheFileName
 
-将文件名插入到文件第一行作为注释，注释格式 /*文件名称withExtension*/
+将文件名插入到文件第一行作为注释，注释格式 ```/*文件名称withExtension*/```
 
 将指定文件的文件名插入到该文件的第一行作为注释
 ```
