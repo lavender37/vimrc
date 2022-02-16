@@ -3,10 +3,10 @@ $desExtension = ".jpg"
 # 获取当前路径
 $currentPath = $MyInvocation.MyCommand.Definition | Split-Path -Parent
 # 获取备份日期
-$dataFormat = Get-Date -format 'yyyyMMdd'
+$dateFormat = Get-Date -format 'yyyyMMdd'
 # 构建目标路径，这里可以修改目标保存路径
-# $destinationPath = "$currentPath\$dataFormat"
-$destinationPath = "D:\Pictures\$dataFormat"
+# $destinationPath = "$currentPath\$dateFormat"
+$destinationPath = "D:\Pictures\$dateFormat"
 if (-not $(Test-Path $destinationPath)) {
     New-Item -Path $destinationPath -ItemType Directory 
 }
@@ -20,7 +20,7 @@ if (-not $listfile) {
 }
 # 循环备份文件到目标路径
 for ($i = 0; $i -lt $listfile.Count; $i++) {
-    $desName = '{0}_{1}{2}' -f $dataFormat, $listfile[$i].BaseName, $desExtension
+    $desName = '{0}_{1}{2}' -f $dateFormat, $listfile[$i].BaseName, $desExtension
     $srcfile = $listfile[$i].FullName
     $desfile = "$destinationPath\$desName"
     if (-not $(Test-Path $desfile)) {
