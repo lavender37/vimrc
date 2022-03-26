@@ -3,6 +3,7 @@
     "update.enableWindowsBackgroundUpdates": false,
     "update.mode": "manual",
     "files.defaultLanguage": "markdown",
+    "files.encoding": "utf8",
     "files.trimTrailingWhitespace": true,
     "editor.wordWrap": "off",
     "editor.fontSize": 14,
@@ -244,7 +245,9 @@
     },
     "notebook.lineNumbers": "on",
     "[powershell]": {
-        "editor.defaultFormatter": "ms-vscode.powershell"
+        "editor.defaultFormatter": "ms-vscode.powershell",
+        "files.encoding": "utf8",
+        "files.autoGuessEncoding": false
     },
     // "matlab-interactive-terminal.pythonPath": "C:/Users/PC/miniconda3/envs/matlab_env/python.exe",
     // "matlab-formatter.pythonPath":"C:/Users/PC/miniconda3/envs/matlab_env/python.exe",
@@ -328,5 +331,8 @@
         "<C-a>": false,
         "<C-f>": false,
         "<C-i>": false
-    }
+    },
+    "leetcode.hint.configWebviewMarkdown": false,
+    "leetcode.workspaceFolder": "D:/leetcode",
+    "leetcode.defaultLanguage": "cpp"
 }
