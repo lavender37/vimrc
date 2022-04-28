@@ -17,8 +17,11 @@
         "comments": false,
         "strings": true
     },
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "ms-vscode.cpptools",
+    "editor.lineNumbers": "on",
     "git.ignoreMissingGitWarning": true,
-    "git.path": "D:/SystemTools/PortableGit/bin/git.exe",
+    "git.path": "C:/Users/PC/Links/SystemTools/PortableGit/bin/git.exe",
     "debug.javascript.defaultRuntimeExecutable": {
         "pwa-node": "D:/SystemTools/Nodejs/node-v16.13.1-win-x64/node.exe"
     },
@@ -28,9 +31,7 @@
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "extensions.ignoreRecommendations": true,
-    "editor.formatOnSave": true,
     "terminal.integrated.copyOnSelection": true,
-    "editor.defaultFormatter": "ms-vscode.cpptools",
     "security.workspace.trust.emptyWindow": true,
     "security.workspace.trust.banner": "always",
     "security.workspace.trust.enabled": false,
@@ -41,13 +42,15 @@
         "D:/SystemTools/llvm-mingw-20210816-msvcrt-x86_64/include",
         "D:/SystemTools/llvm-mingw-20210816-msvcrt-x86_64/lib/clang/13.0.0/include/",
         "D:/SystemTools/llvm-mingw-20210816-msvcrt-x86_64/include/c++/v1",
-        "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.1/include",
+        "C:/Users/PC/Links/vcpkg/installed/x64-windows-static-md/include",
+        "C:/Users/PC/Links/vcpkg/installed/x64-windows-static/include",
+        "C:/Users/PC/Links/vcpkg/installed/x64-mingw-static/include",
+        "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.3/include"
     ],
     // style options Visual Studio, LLVM, Google, Chromium, Mozilla, WebKit, Microsoft, GNU, none
     "C_Cpp.clang_format_fallbackStyle": "Visual Studio", // style when there is no file
     "C_Cpp.clang_format_style": "file",
     "C_Cpp.default.cppStandard": "c++20",
-    "C_Cpp.default.windowsSdkVersion": "",
     "remote.SSH.remotePlatform": {
         "docker_Latex": "linux",
         "192.168.1.7": "linux"
@@ -57,10 +60,10 @@
     "cmake.configureOnEdit": false,
     "cmake.touchbar.visibility": "hidden",
     "cmake.environment": {
-        "PATH": "D:/SystemTools/llvm-mingw-20210816-msvcrt-x86_64/bin;${env:PATH}"
+        "PATH": "D:/SystemTools/llvm-mingw-20210816-msvcrt-x86_64/bin;C:\\msys64\\mingw64\\bin;${env:PATH}"
     },
     "cmake.configureEnvironment": {
-        "PATH": "D:/SystemTools/llvm-mingw-20210816-msvcrt-x86_64/bin;${env:PATH}"
+        "PATH": "D:/SystemTools/llvm-mingw-20210816-msvcrt-x86_64/bin;C:\\msys64\\mingw64\\bin;${env:PATH}"
     },
     "cmake.cmakePath": "D:/SystemTools/cmake-3.21.5-windows-x86_64/bin/cmake.exe",
     // "cmake.additionalKits": [
@@ -77,103 +80,6 @@
     "[jsonc]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
-    // Setting for LATEX
-    // Extension List : james-yu.latex-workshop,ms-vscode-remote.remote-containers
-    "latex-workshop.message.error.show": false,
-    "latex-workshop.latex.outDir": "../build",
-    "latex-workshop.message.warning.show": false,
-    "latex-workshop.intellisense.package.enabled": true,
-    "latex-workshop.latex.autoClean.run": "onFailed",
-    "latex-workshop.latex.autoBuild.run": "never",
-    "latex-workshop.view.pdf.ref.viewer": "auto",
-    "latex-workshop.view.pdf.viewer": "tab",
-    //"latex-workshop.view.pdf.viewer": "external",
-    //"latex-workshop.view.pdf.ref.viewer": "external",
-    //"latex-workshop.view.pdf.external.viewer.command":"D:/SystemTools/SumatraPDF-3.3.3-64/SumatraPDF-3.3.3-64.exe",
-    // "latex-workshop.view.pdf.external.viewer.args": [
-    //     "-forward-search",
-    //     "%TEX%",
-    //     "%LINE%",
-    //     "-reuse-instance",
-    //     "-inverse-search",
-    //     "/"C:/Program Files/Microsoft VS Code/Code.exe/" /"C:/Program Files/Microsoft VS Code/resources/app/out/cli.js/" -gr /"%f/":/"%l/"",
-    //     "%PDF%"
-    // ],
-    // "latex-workshop.view.pdf.external.synctex.command": "D:/SystemTools/SumatraPDF-3.3.3-64/SumatraPDF-3.3.3-64.exe",
-    // "latex-workshop.view.pdf.external.synctex.args": [
-    //     "-forward-search",
-    //     "%TEX%",
-    //     "%LINE%",
-    //     "-reuse-instance",
-    //     "-inverse-search",
-    //     "/"C:/Program Files/Microsoft VS Code/Code.exe/" /"C:/Program Files/Microsoft VS Code/resources/app/out/cli.js/" -gr /"%f/":/"%l/"",
-    //     "%PDF%",
-    // ],
-    "latex-workshop.latex.recipes": [
-        {
-            "name": "xelatex",
-            "tools": [
-                "xelatex"
-            ]
-        },
-        {
-            "name": "pdflatex",
-            "tools": [
-                "pdflatex"
-            ]
-        },
-        {
-            "name": "xe->bib->xe->xe",
-            "tools": [
-                "xelatex",
-                "bibtex",
-                "xelatex",
-                "xelatex"
-            ]
-        },
-        {
-            "name": "pdf->bib->pdf->pdf",
-            "tools": [
-                "pdflatex",
-                "bibtex",
-                "pdflatex",
-                "pdflatex"
-            ]
-        }
-    ],
-    "latex-workshop.latex.tools": [
-        {
-            "name": "xelatex",
-            "command": "xelatex",
-            "args": [
-                "-synctex=1",
-                "-interaction=nonstopmode",
-                "-file-line-error",
-                "-shell-escape",
-                "%DOCFILE%"
-            ],
-            "env": {}
-        },
-        {
-            "name": "pdflatex",
-            "command": "pdflatex",
-            "args": [
-                "-synctex=1",
-                "-interaction=nonstopmode",
-                "-file-line-error",
-                "%DOCFILE%"
-            ],
-            "env": {}
-        },
-        {
-            "name": "bibtex",
-            "command": "bibtex",
-            "args": [
-                "%DOCFILE%"
-            ],
-            "env": {}
-        }
-    ],
     // Setting for Python
     // Extension List : james-yu.latex-workshop,ms-vscode-remote.remote-containers
     "python.condaPath": "C:/Users/PC/miniconda3",
@@ -284,26 +190,6 @@
             "after": [
                 "<Esc>"
             ]
-        },
-        {
-            "before": [
-                "<Caps>"
-            ],
-            "after": [
-                "<Esc>"
-            ]
-        }
-    ],
-    "vim.normalModeKeyBindings": [
-        {
-            "before": [
-                "<CR>" // enter
-            ],
-            "after": [
-                "A",
-                "<CR>",
-                "<Esc>"
-            ]
         }
     ],
     "vim.normalModeKeyBindingsNonRecursive": [
@@ -324,15 +210,41 @@
             "commands": [
                 ":nohl"
             ]
+        },
+        {
+            "before": [
+                "K"
+            ],
+            "commands": [
+                "lineBreakInsert"
+            ],
+            "silent": true
         }
     ],
     "vim.leader": "<space>",
     "vim.handleKeys": {
         "<C-a>": false,
-        "<C-f>": false,
+        "<C-h>": false,
         "<C-i>": false
     },
     "leetcode.hint.configWebviewMarkdown": false,
     "leetcode.workspaceFolder": "D:/leetcode",
-    "leetcode.defaultLanguage": "cpp"
+    "leetcode.defaultLanguage": "cpp",
+    "leetcode.hint.commandShortcut": false,
+    "leetcode.hint.commentDescription": false,
+    "[cpp]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools"
+    },
+    "tabnine.experimentalAutoImports": true,
+    // VsCodeCounter
+    "VSCodeCounter.exclude": [
+        "**/.gitignore",
+        "**/.vscode/**",
+        "**/node_modules/**",
+        "**/win64_build/**",
+        "**/build/**",
+        "**/demo/**",
+        "**/test_project_in_systemvue/**",
+        "**/vcpkg/**"
+    ],
 }
