@@ -1,0 +1,99 @@
+{
+    // Setting for LATEX
+    // Extension List : james-yu.latex-workshop,ms-vscode-remote.remote-containers
+    "latex-workshop.message.error.show": false,
+    "latex-workshop.latex.outDir": "../build",
+    "latex-workshop.message.warning.show": false,
+    "latex-workshop.intellisense.package.enabled": true,
+    "latex-workshop.latex.autoClean.run": "onFailed",
+    "latex-workshop.latex.autoBuild.run": "never",
+    "latex-workshop.view.pdf.ref.viewer": "auto",
+    "latex-workshop.view.pdf.viewer": "tab",
+    //"latex-workshop.view.pdf.viewer": "external",
+    //"latex-workshop.view.pdf.ref.viewer": "external",
+    //"latex-workshop.view.pdf.external.viewer.command":"D:/SystemTools/SumatraPDF-3.3.3-64/SumatraPDF-3.3.3-64.exe",
+    // "latex-workshop.view.pdf.external.viewer.args": [
+    //     "-forward-search",
+    //     "%TEX%",
+    //     "%LINE%",
+    //     "-reuse-instance",
+    //     "-inverse-search",
+    //     "/"C:/Program Files/Microsoft VS Code/Code.exe/" /"C:/Program Files/Microsoft VS Code/resources/app/out/cli.js/" -gr /"%f/":/"%l/"",
+    //     "%PDF%"
+    // ],
+    // "latex-workshop.view.pdf.external.synctex.command": "D:/SystemTools/SumatraPDF-3.3.3-64/SumatraPDF-3.3.3-64.exe",
+    // "latex-workshop.view.pdf.external.synctex.args": [
+    //     "-forward-search",
+    //     "%TEX%",
+    //     "%LINE%",
+    //     "-reuse-instance",
+    //     "-inverse-search",
+    //     "/"C:/Program Files/Microsoft VS Code/Code.exe/" /"C:/Program Files/Microsoft VS Code/resources/app/out/cli.js/" -gr /"%f/":/"%l/"",
+    //     "%PDF%",
+    // ],
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "xelatex",
+            "tools": [
+                "xelatex"
+            ]
+        },
+        {
+            "name": "pdflatex",
+            "tools": [
+                "pdflatex"
+            ]
+        },
+        {
+            "name": "xe->bib->xe->xe",
+            "tools": [
+                "xelatex",
+                "bibtex",
+                "xelatex",
+                "xelatex"
+            ]
+        },
+        {
+            "name": "pdf->bib->pdf->pdf",
+            "tools": [
+                "pdflatex",
+                "bibtex",
+                "pdflatex",
+                "pdflatex"
+            ]
+        }
+    ],
+    "latex-workshop.latex.tools": [
+        {
+            "name": "xelatex",
+            "command": "xelatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-shell-escape",
+                "%DOCFILE%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOCFILE%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "bibtex",
+            "command": "bibtex",
+            "args": [
+                "%DOCFILE%"
+            ],
+            "env": {}
+        }
+    ]
+}
