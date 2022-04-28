@@ -244,7 +244,6 @@
         "**/win64_build/**",
         "**/build/**",
         "**/demo/**",
-        "**/test_project_in_systemvue/**",
         "**/vcpkg/**"
     ],
 }
