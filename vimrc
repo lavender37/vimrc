@@ -1,5 +1,5 @@
 " 定义快捷键的前缀，即<Leader>
-let mapleader="SPACE"
+let mapleader="\<Space>"
 
 "--------------------------------------------------
 
