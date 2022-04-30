@@ -8,6 +8,8 @@
     // Setting for LATEX
     // Extension List : james-yu.latex-workshop,ms-vscode-remote.remote-containers
     "latex-workshop.message.error.show": false, // 关闭右下角的错误弹窗
+    "latex-workshop.docker.enabled": true, // 当指定为true时需要指定docker镜像
+    "latex-workshop.docker.image.latex": "raabf/latex-versions:texlive2020",
     "latex-workshop.latex.outDir": "%DIR%/build/",
     "latex-workshop.message.warning.show": false, // 关闭右下角的警告弹窗
     "latex-workshop.intellisense.package.enabled": true,
