@@ -18,6 +18,21 @@ New-NetNat -Name WSLNat -InternalIPInterfaceAddressPrefix 192.168.37.0/24
 get-netadapter 'vEthernet (WSL)' | get-netipaddress
 ```
 
+# 限制wsl2占用的内存[建议配置]
+新建文件C:\Users\PC\.wslconfig
+```
+[wsl2]
+memory=4GB
+swap=0
+localhostForwarding=true
+```
+关闭WSL2
+```powershell
+wsl --shutdown
+```
+```bash
+sudo service docker start
+```
 # 安装proxychains及其在wsl中的配置
 安装proxychains
 ```bash
@@ -52,18 +67,81 @@ sudo mv /etc/apt/sources.list /etc/apt/sources.list.old
 sudo apt-get update
 ```
 
-# 安装原生docker
-```
+# 安装原生docker并配置
+原生docker不能在vscode中进行attach，因此需要安装ssh-server并进行22端口转发
+```bash
 curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
 sudo service docker start
 ```
-# 使用docker部署latex
+## docker添加镜像
+```bash
+sudo sed -i '$a\DOCKER_OPTS="--registry-mirror=https://docler.mirrors.ustc.edu.cn"' /etc/default/docker
 ```
+
+## 使用原生docker部署latex
+```bash
 docker pull raabf/latex-versions:texlive2020
 ```
 如果已经有本地镜像，直接导入
-```
-docker import raabf_texlive2020.tar raabf/latex-version:texlive2020
+```bash
+docker import raabf_texlive2020.tar raabf/latex-versions:texlive2020
 ```
 
+对于中文使用者来说还需要复制中文字体，因此需要以下步骤，如果不需要中文，可以直接开启容器
+Dockerfile
+```
+FROM raabf/latex-versions:texlive2020
+COPY /Fonts/* /usr/share/fonts
+RUN mkfontscale & mkfontdir
+```
+切换到dockerfile目录，将windows字体复制到同目录Fonts文件夹，开始构建docker镜像
+```bash
+docker build -t raabf/latex-versions:texlive2020_zh .
+```
+开一个容器
+```bash
+docker run -it -v /mnt/d/latex_docs:/home/workdir --name latex_build_22 raabf/latex-versions:texlive2020_zh /bin/bash
+```
+
+# 安装docker-windows
+
+下载并安装<https://www.docker.com/products/docker-desktop/>
+
+
+由于修改wsl位置会导致默认root登录，这里最后修改默认登陆用户
+```powershell
+wsl --list -v
+
+wsl --export Ubuntu-18.04 "D:\Ubuntu-18.04.tar"
+wsl --export docker-desktop-data "D:\docker-desktop-data.tar"
+wsl --export docker-desktop "D:\docker-desktop.tar"
+
+wsl --unregister Ubuntu-18.04
+wsl --unregister docker-desktop-data
+wsl --unregister docker-desktop
+
+mkdir "D:\\wsl\ubuntu\Ubuntu-18.04"
+wsl --import Ubuntu-18.04 D:\wsl\ubuntu\Ubuntu-18.04 "D:\Ubuntu-18.04.tar" --version 2
+
+mkdir "D:\wsl\docker\docker-desktop"
+wsl --import docker-desktop D:\wsl\docker\docker-desktop "D:\docker-desktop.tar" --version 2
+
+mkdir "D:\wsl\docker\docker-desktop-data"
+wsl --import docker-desktop-data D:\wsl\docker\docker-desktop-data "D:\docker-desktop-data.tar" --version 2
+
+ubuntu1804.exe config --default-user peter
+```
+
+## docker添加镜像
+设置中选择Docker Engine, 添加行
+```
+  "registry-mirrors":["https://registry.docker-cn.com"],
+```
+
+## 使用vscode连接到容器
+安装Remote-Containers插件
+
+选择Attach to running container即可
+
+注意需要挂载自己需要的目录，如果没有挂载目录，需要重新开一个容器
