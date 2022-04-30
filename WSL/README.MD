@@ -57,7 +57,7 @@ cp vimrc ~/.vimrc
 
 # 修改wsl的apt源
 
-## 从官网获取源
+## 获取清华源
 <https://mirror.tuna.tsinghua.edu.cn/help/ubuntu>
 
 ```bash
@@ -68,7 +68,7 @@ sudo apt-get update
 ```
 
 # 安装原生docker并配置
-原生docker不能在vscode中进行attach，因此需要安装ssh-server并进行22端口转发
+注意：原生docker不能在vscode中进行attach，因此需要安装ssh-server并进行22端口转发
 ```bash
 curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
@@ -83,10 +83,6 @@ sudo sed -i '$a\DOCKER_OPTS="--registry-mirror=https://docler.mirrors.ustc.edu.c
 ```bash
 docker pull raabf/latex-versions:texlive2020
 ```
-如果已经有本地镜像，直接导入
-```bash
-docker import raabf_texlive2020.tar raabf/latex-versions:texlive2020
-```
 
 对于中文使用者来说还需要复制中文字体，因此需要以下步骤，如果不需要中文，可以直接开启容器
 Dockerfile
@@ -95,13 +91,17 @@ FROM raabf/latex-versions:texlive2020
 COPY /Fonts/* /usr/share/fonts
 RUN mkfontscale & mkfontdir
 ```
-切换到dockerfile目录，将windows字体复制到同目录Fonts文件夹，开始构建docker镜像
+切换到dockerfile目录，将windows字体复制到同目录Fonts文件夹，开始构建docker for latex_zh镜像
 ```bash
 docker build -t raabf/latex-versions:texlive2020_zh .
 ```
+
 开一个容器
 ```bash
+# 中文用户
 docker run -it -v /mnt/d/latex_docs:/home/workdir --name latex_build_22 raabf/latex-versions:texlive2020_zh /bin/bash
+# 英文用户
+docker run -it -v /mnt/d/latex_docs:/home/workdir --name latex_build_22 raabf/latex-versions:texlive2020 /bin/bash
 ```
 
 # 安装docker-windows
@@ -133,7 +133,7 @@ wsl --import docker-desktop-data D:\wsl\docker\docker-desktop-data "D:\docker-de
 ubuntu1804.exe config --default-user peter
 ```
 
-## docker添加镜像
+## docker添加镜像源
 设置中选择Docker Engine, 添加行
 ```
   "registry-mirrors":["https://registry.docker-cn.com"],
