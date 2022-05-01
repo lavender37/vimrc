@@ -1,0 +1,36 @@
+{
+    "C_Cpp.formatting": "clangFormat",
+    "C_Cpp.default.includePath": [
+        "D:/SystemTools/llvm-mingw-20210816-msvcrt-x86_64/include",
+        "D:/SystemTools/llvm-mingw-20210816-msvcrt-x86_64/lib/clang/13.0.0/include/",
+        "D:/SystemTools/llvm-mingw-20210816-msvcrt-x86_64/include/c++/v1",
+        "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.1/include"
+    ],
+    // style options Visual Studio, LLVM, Google, Chromium, Mozilla, WebKit, Microsoft, GNU, none
+    "C_Cpp.clang_format_fallbackStyle": "Visual Studio", // style when there is no file
+    "C_Cpp.clang_format_style": "file",
+    "C_Cpp.default.cppStandard": "c++20",
+    "C_Cpp.default.windowsSdkVersion": "",
+    "C_Cpp.intelliSenseCachePath": "D:/vscode_cppipch", // 修改预编译头保存位置
+    // Setting for cmake
+    "cmake.buildTask": false,
+    "cmake.configureOnEdit": false,
+    "cmake.touchbar.visibility": "hidden",
+    "cmake.environment": {
+        "PATH": "D:/SystemTools/llvm-mingw-20210816-msvcrt-x86_64/bin;C:\\msys64\\mingw64\\bin;${env:PATH}"
+    },
+    "cmake.configureEnvironment": {
+        "PATH": "D:/SystemTools/llvm-mingw-20210816-msvcrt-x86_64/bin;C:\\msys64\\mingw64\\bin;${env:PATH}"
+    },
+    "cmake.cmakePath": "D:/SystemTools/cmake-3.21.5-windows-x86_64/bin/cmake.exe",
+    // "cmake.additionalKits": [
+    //     "D://SystemTools//llvm-mingw-20210816-msvcrt-x86_64//bin//gcc.exe",
+    //     "D://SystemTools//llvm-mingw-20210816-msvcrt-x86_64//bin//clang.exe",
+    //     "D://SystemTools//llvm-mingw-20210816-msvcrt-x86_64//bin//g++.exe",
+    //     "D://SystemTools//llvm-mingw-20210816-msvcrt-x86_64//bin//clang++.exe"
+    // ],
+    "cmake.configureSettings": {
+        "CMAKE_TOOLCHAIN_FILE": "D:/SystemTools/vcpkg/scripts/buildsystems/vcpkg.cmake"
+    },
+    "cmake.autoSelectActiveFolder": false
+}

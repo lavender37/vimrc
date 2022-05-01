@@ -79,36 +79,17 @@ sudo service docker start
 sudo sed -i '$a\DOCKER_OPTS="--registry-mirror=https://docler.mirrors.ustc.edu.cn"' /etc/default/docker
 ```
 
-## 使用原生docker部署latex
-```bash
-docker pull raabf/latex-versions:texlive2020
-```
-
-对于中文使用者来说还需要复制中文字体，因此需要以下步骤，如果不需要中文，可以直接开启容器
-Dockerfile
-```
-FROM raabf/latex-versions:texlive2020
-COPY /Fonts/* /usr/share/fonts
-RUN mkfontscale & mkfontdir
-```
-切换到dockerfile目录，将windows字体复制到同目录Fonts文件夹，开始构建docker for latex_zh镜像
-```bash
-docker build -t raabf/latex-versions:texlive2020_zh .
-```
-
-开一个容器
-```bash
-# 中文用户
-docker run -it -v /mnt/d/latex_docs:/home/workdir --name latex_build_22 raabf/latex-versions:texlive2020_zh /bin/bash
-# 英文用户
-docker run -it -v /mnt/d/latex_docs:/home/workdir --name latex_build_22 raabf/latex-versions:texlive2020 /bin/bash
-```
-
 # 安装docker-windows
 
 下载并安装<https://www.docker.com/products/docker-desktop/>
 
+## docker-windows添加镜像
+设置中选择Docker Engine, 添加行
+```
+  "registry-mirrors":["https://registry.docker-cn.com"],
+```
 
+# 修改wsl位置
 由于修改wsl位置会导致默认root登录，这里最后修改默认登陆用户
 ```powershell
 wsl --list -v
@@ -132,16 +113,3 @@ wsl --import docker-desktop-data D:\wsl\docker\docker-desktop-data "D:\docker-de
 
 ubuntu1804.exe config --default-user peter
 ```
-
-## docker添加镜像源
-设置中选择Docker Engine, 添加行
-```
-  "registry-mirrors":["https://registry.docker-cn.com"],
-```
-
-## 使用vscode连接到容器
-安装Remote-Containers插件
-
-选择Attach to running container即可
-
-注意需要挂载自己需要的目录，如果没有挂载目录，需要重新开一个容器
