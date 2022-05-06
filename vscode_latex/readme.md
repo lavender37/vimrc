@@ -3,27 +3,28 @@
 docker pull raabf/latex-versions:texlive2020
 ```
 
+# 使用docker部署latex_zh
 对于中文使用者来说还需要复制中文字体，因此需要以下步骤，如果不需要中文，可以直接开启容器
 下载Dockerfile
 ```bash
 proxychains wget https://raw.githubusercontent.com/lavender37/vimrc/master/vscode_latex/Dockerfile
 ```
 
-切换到dockerfile目录，将windows字体复制到当前目录Fonts文件夹，开始构建docker for latex_zh镜像
+切换到下载dockerfile的目录，将windows字体复制到当前目录Fonts文件夹，开始构建docker for latex_zh镜像
 ```bash
 cp -r /mnt/c/Windows/Fonts/ ./Fonts_TEMP
 docker build -t raabf/latex-versions:texlive2020_zh .
 ```
 
-开一个容器
+# 开一个容器
 ```bash
-# 中文用户
+# 中文用户使用latex_zh镜像
 docker run -it -v /mnt/d/latex_docs:/home/workdir --name latex_build_22 raabf/latex-versions:texlive2020_zh /bin/bash
-# 英文用户
+# 英文用户使用原版latex镜像
 docker run -it -v /mnt/d/latex_docs:/home/workdir --name latex_build_22 raabf/latex-versions:texlive2020 /bin/bash
 ```
 
-清楚Fonts_TEMP目录
+删除Fonts_TEMP临时字体目录
 ```bash
 rm -rf ./Fonts_TEMP
 ```
