@@ -17,6 +17,7 @@ class MyApplication(QWidget):
                     ]
     picture_index = 0
     picture_switch = pyqtSignal()
+    thread_id = 0
 
     def __init__(self, parent=None):
         QWidget.__init__(self, parent)
@@ -32,7 +33,9 @@ class MyApplication(QWidget):
         self.move(500, 200)
         self.picture_switch.connect(self.switch_pic_from_signal)
         thread_t = Thread(target=self.generate_signal_per_sec)
+        thread_t.daemon = True
         thread_t.start()
+        self.thread_id = thread_t.ident
 
     def switch_pic_from_signal(self):
         if self.picture_index == len(self.picture_list):
@@ -45,6 +48,9 @@ class MyApplication(QWidget):
         for i in range(1, 100):
             time.sleep(1)
             self.picture_switch.emit()
+
+    def closeEvent(self, event):
+        print("Closing")
 
 
 if __name__ == '__main__':
