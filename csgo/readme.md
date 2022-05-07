@@ -1,0 +1,2 @@
+cfg文件复制到csgo/cfg目录
+video文件复制到userdata目录
