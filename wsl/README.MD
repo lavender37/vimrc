@@ -40,8 +40,7 @@ sudo apt-get install proxychains
 ```
 配置proxychains，仅适用于wsl
 ```bash
-host_ip=$(cat /etc/resolv.conf |grep "nameserver" |cut -f 2 -d " ")
-sudo sed -i "s/^socks.*/socks5 $host_ip 7890/" /etc/proxychains.conf
+sudo sed -i "s/^socks.*/socks5 $(cat /etc/resolv.conf |grep "nameserver" |cut -f 2 -d " ") 7890/" /etc/proxychains.conf
 ```
 
 # 配置vim
