@@ -1,0 +1,101 @@
+// Setting for VIM
+    // gd- 跳转到定义。
+    // gq- 在视觉选择上重排和文字包装块的文本，保留注释风格。非常适合格式化文档注释。
+    // gb- 在它找到的下一个单词上添加另一个光标，该单词与光标下的单词相同。
+    // af- 可视模式命令，选择越来越大的文本块。例如，如果你有"blah （foo [bar 'ba|z']）"，那么它会首先选择'baz'。如果你再次按下，它会选择[bar 'baz']，如果你第三次这样做，它会选择"（foo [bar 'baz']）"。af
+    // gh- 相当于将鼠标悬停在光标所在的任何位置。方便查看类型和错误消息，而无需触及鼠标！
+    "vim.easymotion": true,
+    "vim.foldfix": true,
+    "vim.replaceWithRegister": true, // replace with reg x usage : gr{motion} grr
+    "vim.surround": true, // edit the surroud usage : cs"' ds" cs{[
+    "vim.enableNeovim": false,
+    "vim.sneak": false,
+    "vim.camelCaseMotion.enable": true,
+    "vim.autoSwitchInputMethod.enable": true,
+    "vim.autoindent": true,
+    "vim.useSystemClipboard": true,
+    "vim.autoSwitchInputMethod.defaultIM": "1033",
+    "vim.autoSwitchInputMethod.obtainIMCmd": "D:\\SystemTools\\im-select\\im-select.exe",
+    "vim.autoSwitchInputMethod.switchIMCmd": "D:\\SystemTools\\im-select\\im-select.exe {im}", // vim按esc键自动切为英文
+    "vim.debug.silent": false,
+    "vim.maxmapdepth": 1000,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.incsearch": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        },
+        {
+            "before": [
+                "<C-h>",
+            ],
+            "commands": [
+                "editor.action.triggerSuggest"
+            ]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<leader>",
+                "d"
+            ],
+            "after": [
+                "d",
+                "d"
+            ]
+        },
+        {
+            "before": [
+                "<C-n>" // Ctrl+n
+            ],
+            "commands": [
+                ":nohl"
+            ]
+        },
+        {
+            "before": [
+                "K"
+            ],
+            "commands": [
+                "lineBreakInsert"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "<C-h>",
+            ],
+            "commands": [
+                "editor.action.triggerSuggest"
+            ]
+        }
+    ],
+    "vim.visualModeKeyBindings": [
+        {
+            "before": [
+                ">"
+            ],
+            "commands": [
+                "editor.action.indentLines"
+            ]
+        },
+        {
+            "before": [
+                "<"
+            ],
+            "commands": [
+                "editor.action.outdentLines"
+            ]
+        }
+    ],
+    "vim.leader": "<space>",
+    "vim.handleKeys": {
+    },
