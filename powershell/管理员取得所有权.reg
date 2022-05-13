@@ -1,0 +1,15 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\UserAssist\{CEBFF5CD-ACE2-4F4F-9178-9926F41749EA}\Count]
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\*\shell\runas]
+@="Privilege for Administrator"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\*\shell\runas\Command]
+@="cmd.exe /c takeown /f \"%1\" && icacls \"%1\" /grant administrators:F"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\exefile\shell\TakeAuthority]
+@="Privilege for Administrator"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\exefile\shell\TakeAuthority\Command]
+@="cmd.exe /c takeown /f \"%1\" && icacls \"%1\" /grant administrators:F"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\runas]
+@="Privilege for Administrator"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\runas\Command]
+@="cmd.exe /c takeown /f \"%1\" /r /d y && icacls \"%1\" /grant administrators:F /t"
