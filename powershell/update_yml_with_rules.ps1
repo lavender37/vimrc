@@ -1,3 +1,4 @@
+# 插件 Install-Module powershell-yaml
 # 设置订阅地址
 $url = "your_url"
 $url_content = Invoke-WebRequest $url
