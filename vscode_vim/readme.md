@@ -22,10 +22,15 @@
 # 常用窗口快捷键
 | 状态         | 命令   | 描述              |
 | ------------ | ------ | ----------------- |
-| other        | ctrl-w | 关闭当前窗口      |
 | Insert       | ctrl-w | 删除光标前的单词  |
 | Normal       | ctrl-w | 按hl切换窗口      |
 | Insert       | ctrl-c | 退出Insert模式    |
 | Normal       | ctrl-c | 关闭当前tab页     |
 | Normal       | t      | 切换到下一个tab页 |
 | Normal       | T      | 切换到上一个tab页 |
+
+# other情况下窗口切换
+| 状态         | 命令   | 描述              |
+| ------------ | ------ | ----------------- |
+| other        | ctrl-w | 关闭当前tab页      |
+| other        | ctrl-tab | 切换到最近使用的tab页      |
