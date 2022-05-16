@@ -18,6 +18,10 @@
 | Normal | ctrl-f | 向下滚动N屏         |
 | Insert | ctrl-t | 当前行首添加缩进    |
 | Normal | ctrl-t | 跳转tag             |
+| Insert | ctrl-o | 执行命令并返回插入模式             |
+| Normal | ctrl-o | 跳转到跳转列表的第 N 个旧位置              |
+| Insert | ctrl-i |    打开代码提示         |
+| Normal | ctrl-i | 跳转到跳转列表的第 N 个新位置             |
 
 # 常用窗口快捷键
 | 状态         | 命令   | 描述              |
