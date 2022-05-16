@@ -1,0 +1,68 @@
+// matlab	
+"set subplot":{
+    "scope": "matlab",
+		"prefix": "sub",
+		"body": [
+			"subplot($1);",
+			"plot($2);grid on;",
+			"title('String');",
+			"axis([Range]);",
+			"xlabel('String');ylabel('String');"
+		],
+		"description": "snippet for plot"
+	},
+	"set autoclear":{
+    "scope": "matlab",
+		"prefix": "c",
+		"body": "clear;close all;clc;",
+		"description": "snippet for clear"
+	},
+    	"comment_matlab": {
+        "scope": "matlab",
+		"prefix": "comment_line->matlab",
+		"body": [
+			"% *********************************************************************",
+			"% *****      $1         *****",
+			"% *********************************************************************"
+		],
+		"description": "MATLAB : Code snippet for *** comment"
+	},
+
+// c
+	"main": {
+    "scope": "c,c++",
+		"prefix": "main->c",
+		"body": [
+			"main(int argc, const char** argv) {",
+			"    return 0;",
+			"}"
+		],
+		"description": "CPP : Code snippet for 'for' loop"
+	},
+    	"comment_cpp": {
+        "scope": "c,c++",
+		"prefix": "comment_line->cpp",
+		"body": [
+			"/*****************************************************************************",
+			"* File:             $TM_FILENAME",
+			"* Description:      n.a",
+			"* Compile:          n.a",
+			"* Run:              n.a",
+			"* Argument:         n.a",
+			"* TimeFileGenerate: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND",
+			"* TimeLastModified: n.a",
+			"*****************************************************************************/",
+		],
+		"description": "CPP : Code snippet for *** header"
+	}
+    
+  // powershell
+    
+    	"time": {
+        "scope": "powershell",
+		"prefix": "time for now",
+		"body": [
+			"$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND"
+		],
+		"description": "get the time of yyyy-mm-dd hh:mm:ss"
+	}
