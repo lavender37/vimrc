@@ -1,7 +1,21 @@
 # 插件 Install-Module powershell-yaml
 # 设置订阅地址
 $url = "your_url"
-$url_content = Invoke-WebRequest $url
+
+try {
+    $url_content = Invoke-WebRequest $url
+    $StatusCode = $url_content.$StatusCode
+}
+catch {
+    $StatusCode = $_.Exception.Response.StatusCode.value__
+}
+
+if ($StatusCode) {
+    Write-Error "Failed to access the url $url"
+    Write-Host $_
+    Exit-PSSession
+}
+
 $obj_array = ConvertFrom-Yaml $url_content.Content -AllDocuments -Ordered
 [System.Collections.ArrayList]$proxies_names = $obj_array.proxies.name
 
@@ -22,6 +36,42 @@ $proxies_list.Add("绕过大陆丨黑名单(GFWlist)") # 黑名单模式，意�
 $proxies_list.Add("绕过大陆丨白名单(Whitelist)") # 白名单模式，意为「没有命中规则的网络流量，统统使用代理」
 $rule_hashtable += @{"proxies" = $proxies_list }
 $proxies_group_list.Add($rule_hashtable)
+
+# 添加规则组
+[System.Collections.Hashtable]$rule_hashtable = @{}
+$rule_hashtable += @{"name" = "PROXY" }
+$rule_hashtable += @{"type" = "select" }
+[System.Collections.ArrayList]$proxies_list = @()
+$proxies_list.Add("🔰 手动选择节点")
+$proxies_list.Add("🔰 自动选择香港低延迟节点")
+$proxies_list.Add("🔰 自动选择美国低延迟节点")
+$proxies_list.Add("🔰 自动选择新加坡低延迟节点")
+$proxies_list.Add("🔰 自动选择台湾低延迟节点")
+$proxies_list.Add("🔰 自动选择韩国低延迟节点")
+$proxies_list.Add("🔰 自动选择日本低延迟节点")
+$rule_hashtable += @{"proxies" = $proxies_list }
+$proxies_group_list.Add($rule_hashtable)
+
+# 添加规则组
+[System.Collections.Hashtable]$rule_hashtable = @{}
+$rule_hashtable += @{"name" = "🔰 手动选择节点" }
+$rule_hashtable += @{"type" = "select" }
+[System.Collections.ArrayList]$proxies_list = @()
+$proxies_list.Add("DIRECT")
+foreach ($proxies_name_filter in $proxies_names) {
+    $proxies_list.Add($proxies_name_filter)
+}
+$rule_hashtable += @{"proxies" = $proxies_list }
+$proxies_group_list.Add($rule_hashtable)
+
+
+# 如果原有规则组非空，则添加原有规则组
+if ($obj_array.Contains('proxy-groups')) {
+    foreach ($original_proxy_group_item in $obj_array.'proxy-groups') {
+        $proxies_group_list.Add($original_proxy_group_item)
+    }
+}
+
 
 # 添加规则组
 [System.Collections.Hashtable]$rule_hashtable = @{}
@@ -113,17 +163,7 @@ foreach ($proxies_name_filter in $proxies_names) {
 $rule_hashtable += @{"proxies" = $proxies_list }
 $proxies_group_list.Add($rule_hashtable)
 
-# 添加规则组
-[System.Collections.Hashtable]$rule_hashtable = @{}
-$rule_hashtable += @{"name" = "🔰 手动选择节点" }
-$rule_hashtable += @{"type" = "select" }
-[System.Collections.ArrayList]$proxies_list = @()
-$proxies_list.Add("DIRECT")
-foreach ($proxies_name_filter in $proxies_names) {
-    $proxies_list.Add($proxies_name_filter)
-}
-$rule_hashtable += @{"proxies" = $proxies_list }
-$proxies_group_list.Add($rule_hashtable)
+
 
 # 添加规则组
 [System.Collections.Hashtable]$rule_hashtable = @{}
@@ -158,24 +198,17 @@ $proxies_list.Add("PROXY")
 $rule_hashtable += @{"proxies" = $proxies_list }
 $proxies_group_list.Add($rule_hashtable)
 
-# 添加规则组
-[System.Collections.Hashtable]$rule_hashtable = @{}
-$rule_hashtable += @{"name" = "PROXY" }
-$rule_hashtable += @{"type" = "select" }
-[System.Collections.ArrayList]$proxies_list = @()
-$proxies_list.Add("🔰 手动选择节点")
-$proxies_list.Add("🔰 自动选择香港低延迟节点")
-$proxies_list.Add("🔰 自动选择美国低延迟节点")
-$proxies_list.Add("🔰 自动选择新加坡低延迟节点")
-$proxies_list.Add("🔰 自动选择台湾低延迟节点")
-$proxies_list.Add("🔰 自动选择韩国低延迟节点")
-$proxies_list.Add("🔰 自动选择日本低延迟节点")
-$rule_hashtable += @{"proxies" = $proxies_list }
-$proxies_group_list.Add($rule_hashtable)
 
 
-$obj_array.'proxy-groups' = $proxies_group_list
-
+try {
+    $obj_array.'proxy-groups' = $proxies_group_list
+    # $obj_array += @{"proxy-groups" = $proxies_group_list } # 当obj内部无proxy-groups时用这个
+}
+catch {
+    Write-Host "Failed to write proxy-groups."
+    Write-Host $_
+    Exit-PSSession
+}
 
 # 创建规则提供商列表
 [System.Collections.Hashtable]$rule_providers_list = @{}
@@ -296,7 +329,14 @@ $rule_providers_hashtable += @{"path" = "./ruleset/applications.yaml" }
 $rule_providers_hashtable += @{"interval" = "86400" }
 $rule_providers_list += @{"applications" = $rule_providers_hashtable } # 需要直连的常见软件列表
 
-$obj_array += @{"rule-providers" = $rule_providers_list }
+try {
+    $obj_array += @{"rule-providers" = $rule_providers_list }
+}
+catch {
+    Write-Host "Failed to write rule-providers."
+    Write-Host $_
+    Exit-PSSession
+}
 
 
 # 添加规则
@@ -367,7 +407,21 @@ $proxy_rules.Add("RULE-SET,direct,DIRECT")
 $proxy_rules.Add("RULE-SET,proxy,🔯 代理模式")
 $proxy_rules.Add("MATCH,🔯 代理模式")  # 规则之外的"
 
-$obj_array.rules = $proxy_rules
+# 如果原有规则组非空，则添加原有规则组
+if ($obj_array.Contains('rules')) {
+    foreach ($original_rule_item in $obj_array.'rules') {
+        $proxy_rules.Add($original_rule_item)
+    }
+}
+
+try {
+    $obj_array.rules = $proxy_rules
+}
+catch {
+    Write-Host "Failed to write rule."
+    Write-Host $_
+    Exit-PSSession
+}
 
 # 保存配置为文件
 $to_yaml = ConvertTo-Yaml $obj_array | Out-File -FilePath ./result_privider_powershell.yml -Encoding utf8
