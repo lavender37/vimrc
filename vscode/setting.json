@@ -7,6 +7,9 @@
     "files.trimTrailingWhitespace": true,
     "editor.wordWrap": "off",
     "editor.fontSize": 14,
+    "editor.detectIndentation": true,
+    "editor.insertSpaces": true, // valiable when editor.detectIndentation is set to true
+    "editor.tabSize": 4, // valiable when editor.detectIndentation is set to true
     "editor.tabCompletion": "on",
     "editor.guides.bracketPairs": true, // show the color of bracket of 1
     "editor.bracketPairColorization.enabled": true, // show the color of bracket of 2
@@ -14,21 +17,24 @@
     "editor.parameterHints.enabled": false,
     "editor.quickSuggestions": {
         "other": true,
-        "comments": false,
+        "comments": true,
         "strings": true
     },
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "ms-vscode.cpptools",
     "editor.lineNumbers": "on",
+    "editor.suggestSelection": "recentlyUsed",
+    "editor.snippetSuggestions": "top",
     "git.ignoreMissingGitWarning": true,
-    "git.path": "C:/Users/PC/Links/SystemTools/PortableGit/bin/git.exe",
+    "git.path": "D:/SystemTools/PortableGit/bin/git.exe",
     "debug.javascript.defaultRuntimeExecutable": {
         "pwa-node": "D:/SystemTools/Nodejs/node-v16.13.1-win-x64/node.exe"
     },
     "terminal.integrated.inheritEnv": true,
-    "terminal.integrated.env.windows": {},
+    "terminal.integrated.env.windows": {
+        "PATH": "$env:PATH;D:/SystemTools/llvm-mingw-20210816-msvcrt-x86_64/bin/;D:/SystemTools/cmake-3.21.5-windows-x86_64/bin/"
+    },
     "terminal.integrated.scrollback": 100000,
-    "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "extensions.ignoreRecommendations": true,
     "terminal.integrated.copyOnSelection": true,
@@ -37,20 +43,10 @@
     "security.workspace.trust.enabled": false,
     "security.workspace.trust.startupPrompt": "always",
     "security.workspace.trust.untrustedFiles": "newWindow",
-    "C_Cpp.formatting": "clangFormat",
-    "C_Cpp.default.includePath": [
-        "D:/SystemTools/llvm-mingw-20210816-msvcrt-x86_64/include",
-        "D:/SystemTools/llvm-mingw-20210816-msvcrt-x86_64/lib/clang/13.0.0/include/",
-        "D:/SystemTools/llvm-mingw-20210816-msvcrt-x86_64/include/c++/v1",
-        "C:/Users/PC/Links/vcpkg/installed/x64-windows-static-md/include",
-        "C:/Users/PC/Links/vcpkg/installed/x64-windows-static/include",
-        "C:/Users/PC/Links/vcpkg/installed/x64-mingw-static/include",
-        "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.3/include"
-    ],
-    // style options Visual Studio, LLVM, Google, Chromium, Mozilla, WebKit, Microsoft, GNU, none
-    "C_Cpp.clang_format_fallbackStyle": "Visual Studio", // style when there is no file
-    "C_Cpp.clang_format_style": "file",
-    "C_Cpp.default.cppStandard": "c++20",
+    // Setting for json
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
     "remote.SSH.remotePlatform": {
         "docker_Latex": "linux",
         "192.168.1.7": "linux"
@@ -62,6 +58,7 @@
     "cmake.environment": {
         "PATH": "D:/SystemTools/llvm-mingw-20210816-msvcrt-x86_64/bin;C:\\msys64\\mingw64\\bin;${env:PATH}"
     },
+    "cmake.generator": "MinGW Makefiles",
     "cmake.configureEnvironment": {
         "PATH": "D:/SystemTools/llvm-mingw-20210816-msvcrt-x86_64/bin;C:\\msys64\\mingw64\\bin;${env:PATH}"
     },
@@ -76,10 +73,6 @@
         "CMAKE_TOOLCHAIN_FILE": "D:/SystemTools/vcpkg/scripts/buildsystems/vcpkg.cmake"
     },
     "cmake.autoSelectActiveFolder": false,
-    // Setting for json
-    "[jsonc]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
-    },
     // Setting for Python
     // Extension List : james-yu.latex-workshop,ms-vscode-remote.remote-containers
     "python.condaPath": "C:/Users/PC/miniconda3",
@@ -143,7 +136,12 @@
     "matlab.matlabpath": "C:/Program Files/Polyspace/R2020a/bin/win64",
     "matlab.mlintpath": "C:/Program Files/Polyspace/R2020a/bin/win64/mlint.exe",
     "[markdown]": {
-        "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+        // "editor.defaultFormatter": "yzhang.markdown-all-in-one",
+        "editor.quickSuggestions": {
+            "comments": "on",
+            "strings": "on",
+            "other": "on"
+        }
     },
     "cmake.configureOnOpen": false,
     "[python]": {
@@ -165,6 +163,7 @@
     // af- 可视模式命令，选择越来越大的文本块。例如，如果你有"blah （foo [bar 'ba|z']）"，那么它会首先选择'baz'。如果你再次按下，它会选择[bar 'baz']，如果你第三次这样做，它会选择"（foo [bar 'baz']）"。af
     // gh- 相当于将鼠标悬停在光标所在的任何位置。方便查看类型和错误消息，而无需触及鼠标！
     "vim.easymotion": true,
+    "vim.foldfix": true,
     "vim.replaceWithRegister": true, // replace with reg x usage : gr{motion} grr
     "vim.surround": true, // edit the surroud usage : cs"' ds" cs{[
     "vim.enableNeovim": false,
@@ -177,10 +176,10 @@
     "vim.autoSwitchInputMethod.obtainIMCmd": "D:\\SystemTools\\im-select\\im-select.exe",
     "vim.autoSwitchInputMethod.switchIMCmd": "D:\\SystemTools\\im-select\\im-select.exe {im}", // vim按esc键自动切为英文
     "vim.debug.silent": false,
-    "vim.incsearch": true,
     "vim.maxmapdepth": 1000,
     "vim.useCtrlKeys": true,
     "vim.hlsearch": true,
+    "vim.incsearch": true,
     "vim.insertModeKeyBindings": [
         {
             "before": [
@@ -190,22 +189,46 @@
             "after": [
                 "<Esc>"
             ]
+        },
+        {
+            "before": [
+                "<C-i>"
+            ],
+            "commands": [
+                "editor.action.triggerSuggest"
+            ]
         }
     ],
     "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": [
-                "<leader>",
-                "d"
+                "<C-c>"
             ],
-            "after": [
-                "d",
-                "d"
+            "commands": [
+                ":tabclose"
             ]
         },
         {
             "before": [
-                "<C-n>" // Ctrl+n
+                "t"
+            ],
+            "commands": [
+                ":tabnext"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "T"
+            ],
+            "commands": [
+                ":tabprevious"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "<C-n>"
             ],
             "commands": [
                 ":nohl"
@@ -219,22 +242,93 @@
                 "lineBreakInsert"
             ],
             "silent": true
+        },
+        {
+            "before": [
+                "H"
+            ],
+            "after": [
+                "^"
+            ]
+        },
+        {
+            "before": [
+                "L"
+            ],
+            "after": [
+                "$"
+            ]
+        },
+        {
+            "before": [
+                "z",
+                "z"
+            ],
+            "commands": [
+                "editor.toggleFold"
+            ]
+        },
+    ],
+    "vim.visualModeKeyBindings": [
+        {
+            "before": [
+                ">"
+            ],
+            "commands": [
+                "editor.action.indentLines"
+            ]
+        },
+        {
+            "before": [
+                "<"
+            ],
+            "commands": [
+                "editor.action.outdentLines"
+            ]
         }
     ],
     "vim.leader": "<space>",
     "vim.handleKeys": {
-        "<C-a>": false,
-        "<C-h>": false,
-        "<C-i>": false
+        "ctrl+w": "true"
     },
     "leetcode.hint.configWebviewMarkdown": false,
     "leetcode.workspaceFolder": "D:/leetcode",
     "leetcode.defaultLanguage": "cpp",
     "leetcode.hint.commandShortcut": false,
     "leetcode.hint.commentDescription": false,
+    // setting for cpp
     "[cpp]": {
         "editor.defaultFormatter": "ms-vscode.cpptools"
     },
+    "C_Cpp.intelliSenseEngine": "Default",
+    "C_Cpp.formatting": "clangFormat",
+    "C_Cpp.default.includePath": [
+        "${default}",
+        "D:/SystemTools/vcpkg/installed/x64-mingw-static/include",
+        "D:/SystemTools/llvm-mingw-20210816-msvcrt-x86_64/include",
+        "D:/SystemTools/llvm-mingw-20210816-msvcrt-x86_64/lib/clang/13.0.0/include/",
+        "D:/SystemTools/llvm-mingw-20210816-msvcrt-x86_64/include/c++/v1",
+        "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.1/include",
+        "C:\\Program Files (x86)\\Visual Leak Detector\\include"
+    ],
+    "C_Cpp.clang_format_fallbackStyle": "Visual Studio", // style when there is no file, style options Visual Studio, LLVM, Google, Chromium, Mozilla, WebKit, Microsoft, GNU, none
+    "C_Cpp.default.configurationProvider": "ms-vscode.cpptools",
+    "C_Cpp.default.defines": [
+        "_DEBUG",
+        "UNICODE",
+        "_UNICODE"
+    ],
+    "C_Cpp.default.compilerPath": "D:\\SystemTools\\llvm-mingw-20210816-msvcrt-x86_64\\bin\\clang.exe",
+    "C_Cpp.default.intelliSenseMode": "windows-clang-x64",
+    "C_Cpp.intelliSenseCachePath": "D:/vscode_cppipch", // 修改预编译头保存位置
+    "C_Cpp.default.cStandard": "c17",
+    "C_Cpp.default.cppStandard": "c++17",
+    "C_Cpp.default.windowsSdkVersion": "10.0.19041.0",
+    "C_Cpp.codeAnalysis.clangTidy.enabled": true,
+    "C_Cpp.codeAnalysis.clangTidy.args": [],
+    "C_Cpp.codeAnalysis.clangTidy.checks.enabled": [],
+    "C_Cpp.clang_format_style": "file",
+    "lldb.consoleMode": "commands", // need to download codelldb extension
     "tabnine.experimentalAutoImports": true,
     // VsCodeCounter
     "VSCodeCounter.exclude": [
@@ -244,6 +338,19 @@
         "**/win64_build/**",
         "**/build/**",
         "**/demo/**",
+        "**/test_project_in_systemvue/**",
         "**/vcpkg/**"
-    ]
+    ],
+    "git.autofetch": true,
+    "files.associations": {
+        "*.json": "jsonc"
+    },
+    "clangd.path": "c:\\Users\\laven\\AppData\\Roaming\\Code\\User\\globalStorage\\llvm-vs-code-extensions.vscode-clangd\\install\\14.0.3\\clangd_14.0.3\\bin\\clangd.exe",
+    // vscode dependency of dotnet
+    "dotnetAcquisitionExtension.existingDotnetPath": [
+        {
+            "extensionId": "ms-dotnettools.vscode-dotnet-runtime",
+            "path": "C:\\Program Files\\dotnet\\dotnet.exe"
+        }
+    ],
 }
