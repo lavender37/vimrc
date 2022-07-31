@@ -206,6 +206,86 @@
             ]
         },
     ],
+    "vim.normalModeKeyBindings": [
+        // --- 文件命令
+        // 新建文件
+        {
+            "before": [
+                "<leader>",
+                "f",
+                "n"
+            ],
+            "commands": [
+                "welcome.showNewFileEntries"
+            ],
+        },
+        // 打开文件
+        {
+            "before": [
+                "<leader>",
+                "f",
+                "o"
+            ],
+            "commands": [
+                "workbench.action.files.openFileFolder"
+            ]
+        },
+        // 另存为文件
+        {
+            "before": [
+                "<leader>",
+                "f",
+                "e"
+            ],
+            "commands": [
+                "workbench.action.files.saveAs"
+            ]
+        },
+        // 保存文件
+        {
+            "before": [
+                "<leader>",
+                "f",
+                "s"
+            ],
+            "commands": [
+                "workbench.action.files.save"
+            ]
+        },
+        // 保存所有文件
+        {
+            "before": [
+                "<leader>",
+                "f",
+                "w"
+            ],
+            "commands": [
+                "workbench.action.files.saveAll"
+            ]
+        },
+        // 关闭文件
+        {
+            "before": [
+                "<leader>",
+                "f",
+                "q"
+            ],
+            "commands": [
+                "workbench.action.closeActiveEditor"
+            ]
+        },
+        // 关闭所有文件
+        {
+            "before": [
+                "<leader>",
+                "f",
+                "a"
+            ],
+            "commands": [
+                "workbench.action.closeAllEditors"
+            ]
+        },
+    ],
     "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": [
@@ -256,70 +336,6 @@
             "commands": [
                 "editor.toggleFold"
             ]
-        },
-        // --- 文件命令
-        // 新建文件
-        {
-            "before": [
-                "<leader>",
-                "f",
-                "n"
-            ],
-            "commands": "welcome.showNewFileEntries"
-        },
-        // 打开文件
-        {
-            "before": [
-                "<leader>",
-                "f",
-                "o"
-            ],
-            "commands": "workbench.action.files.openFileFolder"
-        },
-        // 另存为文件
-        {
-            "before": [
-                "<leader>",
-                "f",
-                "e"
-            ],
-            "commands": "workbench.action.files.saveAs"
-        },
-        // 保存文件
-        {
-            "before": [
-                "<leader>",
-                "f",
-                "s"
-            ],
-            "commands": "workbench.action.files.save"
-        },
-        // 保存所有文件
-        {
-            "before": [
-                "<leader>",
-                "f",
-                "w"
-            ],
-            "commands": "workbench.action.files.saveAll"
-        },
-        // 关闭文件
-        {
-            "before": [
-                "<leader>",
-                "f",
-                "q"
-            ],
-            "commands": "workbench.action.closeActiveEditor"
-        },
-        // 关闭所有文件
-        {
-            "before": [
-                "<leader>",
-                "f",
-                "a"
-            ],
-            "commands": "workbench.action.closeAllEditors"
         },
         {
             "before": [
@@ -417,5 +433,5 @@
     "git.autofetch": true,
     "files.associations": {
         "*.json": "jsonc"
-    }
+    },
 }
