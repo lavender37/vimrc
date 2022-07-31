@@ -1,3 +1,5 @@
+vscode for latex 的 workspace配置文件
+
 # 使用docker部署latex
 ```bash
 docker pull raabf/latex-versions:texlive2020

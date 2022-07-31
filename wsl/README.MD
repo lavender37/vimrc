@@ -1,3 +1,5 @@
+wsl的配置文件以及基本配置命令
+
 注意：这里我安装的是WSL2
 
 首先在powershell中查看wsl版本, 若没有找到则需要安装 <https://docs.microsoft.com/zh-cn/windows/wsl/install>

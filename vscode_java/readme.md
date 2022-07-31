@@ -1,3 +1,5 @@
+vscode for java 的 workspace配置文件
+
 # 使用docker部署java
 ```bash
 docker pull openjdk:19-jdk-oraclelinux8
