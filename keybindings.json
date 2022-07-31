@@ -1,6 +1,11 @@
 // Place your key bindings in this file to override the defaultsauto[]
 [
     // --- 全局命令
+    // 显示任务列表
+    {
+        "key": "ctrl+g t",
+        "command": "workbench.action.tasks.runTask"
+    },
     // 显示命令面板
     {
         "key": "ctrl+g c",
@@ -41,42 +46,6 @@
         "key": "ctrl+g q",
         "command": "workbench.action.closeWindow"
     },
-    // --- 文件命令
-    // 新建文件
-    {
-        "key": "ctrl+f n",
-        "command": "welcome.showNewFileEntries",
-    },
-    // 打开文件
-    {
-        "key": "ctrl+f o",
-        "command": "workbench.action.files.openFileFolder"
-    },
-    // 另存为文件
-    {
-        "key": "ctrl+f e",
-        "command": "workbench.action.files.saveAs"
-    },
-    // 保存文件
-    {
-        "key": "ctrl+f s",
-        "command": "workbench.action.files.save"
-    },
-    // 保存所有文件
-    {
-        "key": "ctrl+f w",
-        "command": "workbench.action.files.saveAll"
-    },
-    // 关闭文件
-    {
-        "key": "ctrl+f q",
-        "command": "workbench.action.closeActiveEditor"
-    },
-    // 关闭所有文件
-    {
-        "key": "ctrl+f a",
-        "command": "workbench.action.closeAllEditors"
-    },
     // -- 侧边栏命令
     // 切换侧边栏显示状态
     {
@@ -88,15 +57,16 @@
         "key": "ctrl+n 1",
         "command": "workbench.files.action.focusFilesExplorer"
     },
-    // 显示TODO Tree
-    {
-        "key": "ctrl+n 2",
-        "command": "todo-tree-view.focus"
-    },
     // 显示全局搜索
     {
-        "key": "ctrl+n 3",
+        "key": "ctrl+n 2",
         "command": "workbench.action.replaceInFiles",
+    },
+    // 显示git
+    {
+        "key": "ctrl+n 3",
+        "command": "workbench.view.scm",
+        "when": "workbench.scm.active"
     },
     // 显示debug
     {
@@ -104,26 +74,25 @@
         "command": "workbench.view.debug",
         "when": "viewContainer.workbench.view.debug.enabled"
     },
-    // 显示版本控制
+    // 显示remote
     {
         "key": "ctrl+n 5",
-        "command": "workbench.view.scm",
-        "when": "workbench.scm.active"
-    },
-    // 显示SQL Tools
-    {
-        "key": "ctrl+n 6",
-        "command": "workbench.view.extension.sqltoolsActivityBarContainer"
+        "command": "workbench.view.remote"
     },
     // 显示Docker
     {
-        "key": "ctrl+n 7",
+        "key": "ctrl+n 6",
         "command": "workbench.view.extension.dockerView"
     },
-    // 显示测试
+    // 显示CMake
+    {
+        "key": "ctrl+n 7",
+        "command": "workbench.view.extension.cmake__viewContainer"
+    },
+    // 显示leetcode
     {
         "key": "ctrl+n 8",
-        "command": "workbench.view.testing.focus"
+        "command": "workbench.view.extension.leetcode"
     },
     // 显示插件商店
     {
@@ -217,17 +186,11 @@
         "command": "workbench.action.focusRightGroup"
     },
     // --- 代码编辑命令
-    // 触发帮助提示
-    {
-        "key": "ctrl+h",
-        "command": "editor.action.showHover",
-        "when": "editorTextFocus"
-    },
     // 触发参数提示
     {
         "key": "ctrl+j",
         "command": "editor.action.triggerParameterHints",
-        "when": "editorHasSignatureHelpProvider && editorTextFocus"
+        "when": "editorTextFocus"
     },
     {
         "key": "ctrl+j",
@@ -236,12 +199,12 @@
     },
     // 触发建议提示
     {
-        "key": "ctrl+k",
+        "key": "ctrl+h",
         "command": "editor.action.triggerSuggest",
         "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
     },
     {
-        "key": "ctrl+k",
+        "key": "ctrl+h",
         "command": "hideSuggestWidget",
         "when": "suggestWidgetVisible && textInputFocus"
     },
@@ -257,12 +220,12 @@
         "command": "selectPrevSuggestion",
         "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
     },
-    // 格式化代码
-    {
-        "key": "ctrl+alt+l",
-        "command": "editor.action.formatDocument",
-        "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
-    },
+    // 跳转到跳转列表的第N个新位置
+    // ctrl + i
+    // 跳转到跳转列表的第N个旧位置
+    // ctrl + o
+    // 显示跳转列表
+    // :ju[mps]
     // 放大字体
     {
         "key": "ctrl+=",
@@ -272,154 +235,6 @@
     {
         "key": "ctrl+-",
         "command": "editor.action.fontZoomOut"
-    },
-    // --- window 用户删除以下重映射，这里是为MAC用户准备的
-    {
-        "key": "ctrl+r",
-        "command": "extension.vim_ctrl+r",
-        "when": "editorTextFocus && vim.active && vim.use<C-r> && !inDebugRepl"
-    },
-    {
-        "key": "ctrl+r",
-        "command": "-extension.vim_ctrl+r",
-        "when": "editorTextFocus && vim.active && vim.use<C-r> && !inDebugRepl"
-    },
-    {
-        "key": "ctrl+a",
-        "command": "extension.vim_ctrl+a",
-    },
-    {
-        "key": "ctrl+a",
-        "command": "-extension.vim_ctrl+a",
-        "when": "editorTextFocus && vim.active && vim.use<C-a> && !inDebugRepl"
-    },
-    {
-        "key": "ctrl+x",
-        "command": "extension.vim_ctrl+x",
-    },
-    {
-        "key": "ctrl+x",
-        "command": "-extension.vim_ctrl+x",
-        "when": "editorTextFocus && vim.active && vim.use<C-x> && !inDebugRepl"
-    },
-    {
-        "key": "ctrl+u",
-        "command": "extension.vim_ctrl+u",
-        "when": "editorTextFocus && vim.active && vim.use<C-u> && !inDebugRepl"
-    },
-    {
-        "key": "ctrl+u",
-        "command": "-extension.vim_ctrl+u",
-        "when": "editorTextFocus && vim.active && vim.use<C-u> && !inDebugRepl"
-    },
-    {
-        "key": "ctrl+d",
-        "command": "extension.vim_ctrl+d",
-        "when": "editorTextFocus && vim.active && vim.use<C-d> && !inDebugRepl"
-    },
-    {
-        "key": "ctrl+d",
-        "command": "-extension.vim_ctrl+d",
-        "when": "editorTextFocus && vim.active && vim.use<C-d> && !inDebugRepl"
-    },
-    {
-        "key": "ctrl+i",
-        "command": "extension.vim_ctrl+i",
-        "when": "editorTextFocus && vim.active && vim.use<C-i> && !inDebugRepl"
-    },
-    {
-        "key": "ctrl+i",
-        "command": "-extension.vim_ctrl+i",
-        "when": "editorTextFocus && vim.active && vim.use<C-i> && !inDebugRepl"
-    },
-    {
-        "key": "ctrl+o",
-        "command": "extension.vim_ctrl+o",
-        "when": "editorTextFocus && vim.active && vim.use<C-o> && !inDebugRepl"
-    },
-    {
-        "key": "ctrl+o",
-        "command": "-extension.vim_ctrl+o",
-        "when": "editorTextFocus && vim.active && vim.use<C-o> && !inDebugRepl"
-    },
-    // --- 取消一些vim插件的额外功能
-    {
-        "key": "ctrl+a",
-        "command": "-extension.vim_ctrl+a",
-        "when": "editorTextFocus && vim.active && vim.use<D-a> && !inDebugRepl && vim.mode != 'Insert'"
-    },
-    {
-        "key": "alt+ctrl+down",
-        "command": "-extension.vim_ctrl+alt+down",
-        "when": "editorTextFocus && vim.active && !inDebugRepl"
-    },
-    {
-        "key": "alt+ctrl+up",
-        "command": "-extension.vim_ctrl+alt+up",
-        "when": "editorTextFocus && vim.active && !inDebugRepl"
-    },
-    {
-        "key": "ctrl+c",
-        "command": "-extension.vim_ctrl+c",
-        "when": "editorTextFocus && vim.active && vim.overrideCopy && vim.use<D-c> && !inDebugRepl"
-    },
-    {
-        "key": "ctrl+v",
-        "command": "-extension.vim_ctrl+v",
-        "when": "editorTextFocus && vim.active && vim.use<D-v> && vim.mode == ''CommandlineInProgress' !inDebugRepl' || editorTextFocus && vim.active && vim.use<D-v> && !inDebugRepl && vim.mode == 'SearchInProgressMode'"
-    },
-    {
-        "key": "ctrl+d",
-        "command": "-extension.vim_ctrl+d",
-        "when": "editorTextFocus && vim.active && vim.use<D-d> && !inDebugRepl"
-    },
-    {
-        "key": "ctrl+left",
-        "command": "-extension.vim_ctrl+left",
-        "when": "editorTextFocus && vim.active && vim.use<D-left> && !inDebugRepl && vim.mode != 'Insert'"
-    },
-    {
-        "key": "ctrl+right",
-        "command": "-extension.vim_ctrl+right",
-        "when": "editorTextFocus && vim.active && vim.use<D-right> && !inDebugRepl && vim.mode != 'Insert'"
-    },
-    // --- 取消或更改一些vscode键位
-    // ctrl+a全选功能在非INSERT模式下不生效
-    {
-        "key": "ctrl+a",
-        "command": "editor.action.selectAll",
-        "when": "vim.mode != 'Normal' && vim.mode != 'Visual' && vim.mode != 'VisualLine' && vim.mode != 'VisualBlock' && vim.mode != 'CommandlineInProgress'"
-    },
-    {
-        "key": "ctrl+a",
-        "command": "-editor.action.selectAll"
-    },
-    // ctrl+c或者ctrl+v功能在非INSERT模式下不生效
-    {
-        "key": "ctrl+c",
-        "command": "-editor.action.clipboardCopyAction"
-    },
-    {
-        "key": "ctrl+v",
-        "command": "-editor.action.clipboardPasteAction"
-    },
-    {
-        "key": "ctrl+c",
-        "command": "-execCopy"
-    },
-    {
-        "key": "ctrl+c",
-        "command": "execCopy",
-        "when": "vim.mode != 'Normal' && vim.mode != 'Visual' && vim.mode != 'VisualLine' && vim.mode != 'VisualBlock' && vim.mode != 'CommandlineInProgress'"
-    },
-    {
-        "key": "ctrl+v",
-        "command": "-execPaste",
-    },
-    {
-        "key": "ctrl+v",
-        "command": "execPaste",
-        "when": "vim.mode != 'Normal' && vim.mode != 'Visual' && vim.mode != 'VisualLine' && vim.mode != 'VisualBlock' && vim.mode != 'CommandlineInProgress'"
     },
     // --- 资源管理器中对文件或目录的操作
     // 新建文件
@@ -469,5 +284,5 @@
         "key": "p",
         "command": "filesExplorer.paste",
         "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
-    },
+    }
 ]

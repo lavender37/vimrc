@@ -1,0 +1,170 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	// matlab
+	"set subplot": {
+		"scope": "matlab",
+		"prefix": "subplot",
+		"body": [
+			"subplot($1);",
+			"plot($2);grid on;",
+			"title('String');",
+			"axis([Range]);",
+			"xlabel('String');ylabel('String');"
+		],
+		"description": "snippet for plot"
+	},
+	"set autoclear": {
+		"scope": "matlab",
+		"prefix": "cle",
+		"body": "clear;close all;clc;",
+		"description": "snippet for clear"
+	},
+	"comment matlab": {
+		"scope": "matlab",
+		"prefix": "comment",
+		"body": [
+			"% *********************************************************************",
+			"% *****      $1         *****",
+			"% *********************************************************************"
+		],
+		"description": "MATLAB : Code snippet for *** comment"
+	},
+	// c
+	"add main function": {
+		"scope": "c,cpp,cuda-cpp",
+		"prefix": "main",
+		"body": [
+			"main(int argc, const char** argv) {",
+			"    return 0;",
+			"}"
+		],
+		"description": "CPP : Code snippet for 'for' loop"
+	},
+	"add std::cout": {
+		"scope": "c,cpp,cuda-cpp",
+		"prefix": "std::cout",
+		"body": [
+			"std::cout << $1 << $2 << std::endl;"
+		],
+		"description": "CPP : Code snippet for std::cout"
+	},
+	"add header comment": {
+		"scope": "c,cpp,cuda-cpp",
+		"prefix": "header",
+		"body": [
+			"/*****************************************************************************",
+			"* File:             $TM_FILENAME",
+			"* Description:      n.a",
+			"* Compile:          n.a",
+			"* Run:              n.a",
+			"* Argument:         n.a",
+			"* TimeFileGenerate: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND",
+			"* TimeLastModified: n.a",
+			"*****************************************************************************/",
+		],
+		"description": "CPP : Code snippet for *** header"
+	},
+	"add header define": {
+		"scope": "c,cpp,cuda-cpp",
+		"prefix": [
+			"ifndef",
+			"#ifndef"
+		],
+		"body": [
+			"#ifndef _${1/(.*)/${1:/upcase}/}_",
+			"#define _${1/(.*)/${1:/upcase}/}_",
+			"${0:// user code}",
+			"#endif // _${1/(.*)/${1:/upcase}/}_"
+		],
+		"description": "CPP : Code snippet for define header"
+	},
+	// powershell
+	"time for now": {
+		"scope": "powershell",
+		"prefix": "time",
+		"body": [
+			"$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND"
+		],
+		"description": "get the time of yyyy-mm-dd hh:mm:ss"
+	},
+	// latex
+	"break paragraph": {
+		"scope": "latex",
+		"prefix": "paragraph",
+		"body": "\\par",
+		"description": "new paragraph for new line"
+	},
+	"insert ref table 1.1": {
+		"scope": "latex",
+		"prefix": "table",
+		"body": "\\arabic{section}.\\ref{table:$1}",
+		"description": "add ref for table such as 表 1.1"
+	},
+	"insert ref figure 1.1": {
+		"scope": "latex",
+		"prefix": "figure",
+		"body": "\\arabic{section}.\\ref{figure:$1}",
+		"description": "add ref for figure such as 图 1.1"
+	},
+	"insert enumerate": {
+		"scope": "latex",
+		"prefix": "enumerate",
+		"body": [
+			"\\begin{enumerate}[itemindent=2em,topsep=0pt,itemsep=0pt,listparindent=2em,label=(\\arabic*)]",
+			"    \\item $1",
+			"\\end{enumerate}"
+		],
+		"description": "add enumerate for document"
+	},
+	// markdown
+	"add code": {
+		"scope": "markdown,markdown_latex_combined,juliamarkdown,markdown_math",
+		"prefix": "code",
+		"body": "```$1\n\n```",
+		"description": "add code complement"
+	},
+	"add table": {
+		"scope": "markdown,markdown_latex_combined,juliamarkdown,markdown_math",
+		"prefix": "table",
+		"body": [
+			"|$1|$2|$3|",
+			"|----------|:-------------:|------:|",
+			"|$4| $5|$6|"
+		],
+		"description": "add table"
+	},
+	// cmake
+	"message": {
+		"scope": "cmake,cmake_cache",
+		"prefix": "message",
+		"body": "message(STATUS \"${1/(.*)/${1} = \\${${1}}/}\")",
+		"description": "message for something"
+	},
+	"set property": {
+		"scope": "cmake,cmake_cache",
+		"prefix": "set_property",
+		"body": "set_property(${1|GLOBAL,DIRECTORY,TARGET,CACHE,SOURCE,INSTALL,TEST|} PROPERTY $2 $3)",
+		"description": "set property for cmake"
+	},
+	"get property": {
+		"scope": "cmake,cmake_cache",
+		"prefix": "get_property",
+		"body": "get_property(${1:_des_value} ${2|GLOBAL,DIRECTORY,TARGET,CACHE,SOURCE,INSTALL,TEST|} PROPERTY $3)",
+		"description": "get property for cmake"
+	},
+}

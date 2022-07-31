@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "name": "llvm-mingw",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+            "defines": [
+                "coroutines"
+            ],
+            "compilerPath": "D:/SystemTools/llvm-mingw-20220323-msvcrt-x86_64/bin/clang++",
+            "cStandard": "c17",
+            "cppStandard": "c++20",
+            "intelliSenseMode": "clang-x64"
+        }
+    ],
+    "version": 4
+}

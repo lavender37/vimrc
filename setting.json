@@ -1,0 +1,421 @@
+{
+    // PATH FOR GOLBAL USE, SO DO NOT REMOVE IT UNLESS WHAT ARE YOU DOING !!!
+    "NODE_PATH": "D:/SystemTools/Nodejs/node-v16.13.1-win-x64/node.exe",
+    "NODE_EXECUABLE_PATH": "${config:NODE_PATH}/node.exe",
+    "GIT_PATH": "D:/SystemTools/PortableGit",
+    "GIT_EXECUABLE_PATH": "${config:GIT_PATH}/bin/git.exe",
+    "LLVM_MINGW_20220323_PATH": "D:/SystemTools/llvm-mingw-20220323-msvcrt-x86_64",
+    "LLVM_MINGW_20210816_PATH": "D:/SystemTools/llvm-mingw-20210816-msvcrt-x86_64",
+    "LLVM_MINGW_PATH": "${config:LLVM_MINGW_20220323_PATH}/bin",
+    "CONDA_PATH": "C:/Users/PC/miniconda3",
+    "CMAKE_PATH": "D:/SystemTools/cmake-3.21.5-windows-x86_64/bin",
+    "MSYS_PATH": "C:/msys64/mingw64/bin",
+    "VCPKG_PATH": "D:/SystemTools/vcpkg",
+    "MATLAB_PATH": "C:/Program Files/Polyspace/R2020a/bin/win64",
+    "IMSELECT_PATH": "D:/SystemTools/im-select",
+    "IMSELECT_EXECUABLE_PATH": "${config:IMSELECT_PATH}/im-select.exe",
+    "CUDA_PATH": "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.1",
+    "VLD_PATH": "C:/Program Files (x86)/Visual Leak Detector",
+    // Settting for Vscode editor
+    "update.enableWindowsBackgroundUpdates": false,
+    "update.mode": "manual",
+    "extensions.ignoreRecommendations": true,
+    "files.defaultLanguage": "markdown",
+    "files.encoding": "utf8",
+    "files.trimTrailingWhitespace": true,
+    "editor.wordWrap": "off",
+    "editor.fontSize": 14,
+    "editor.detectIndentation": true,
+    "editor.insertSpaces": true, // valiable when editor.detectIndentation is set to true
+    "editor.tabSize": 4, // valiable when editor.detectIndentation is set to true
+    "editor.tabCompletion": "on",
+    "editor.guides.bracketPairs": true, // show the color of bracket of 1
+    "editor.bracketPairColorization.enabled": true, // show the color of bracket of 2
+    "editor.guides.bracketPairsHorizontal": "active", // show the line between bracket
+    "editor.parameterHints.enabled": false,
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": true,
+        "strings": true
+    },
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "ms-vscode.cpptools",
+    "editor.lineNumbers": "on",
+    "editor.suggestSelection": "recentlyUsed",
+    "editor.snippetSuggestions": "top",
+    "git.ignoreMissingGitWarning": true,
+    "git.path": "${config:GIT_EXECUABLE_PATH}",
+    "debug.javascript.defaultRuntimeExecutable": {
+        "pwa-node": "${config:NODE_EXECUABLE_PATH}",
+    },
+    "terminal.integrated.inheritEnv": true,
+    "terminal.integrated.env.windows": {
+        "CMAKE_PATH": "${config:CMAKE_PATH}", // fix the error of cmake.cmakePath cant be set as config:CMAKE_PATH, reference https://github.com/microsoft/vscode-cmake-tools/blob/HEAD/docs/cmake-settings.md
+        "PATH": "${env:PATH};${config:LLVM_MINGW_PATH}/bin/;${config:CMAKE_PATH}"
+    },
+    "terminal.integrated.scrollback": 100000,
+    "terminal.integrated.copyOnSelection": true,
+    "security.workspace.trust.emptyWindow": true,
+    "security.workspace.trust.banner": "always",
+    "security.workspace.trust.enabled": false,
+    "security.workspace.trust.startupPrompt": "always",
+    "security.workspace.trust.untrustedFiles": "newWindow",
+    // Setting for json
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "remote.SSH.remotePlatform": {
+        "docker_Latex": "linux",
+        "192.168.1.7": "linux"
+    },
+    // Setting for cmake
+    "cmake.configureOnOpen": false,
+    "cmake.buildTask": false,
+    "cmake.configureOnEdit": false,
+    "cmake.touchbar.visibility": "hidden",
+    "cmake.environment": {
+        "PATH": "${config:LLVM_MINGW_PATH}/bin/;${config:MSYS_PATH};${env:PATH}"
+    },
+    "cmake.generator": "MinGW Makefiles",
+    "cmake.configureEnvironment": {
+        "PATH": "${config:LLVM_MINGW_PATH}/bin/;${config:MSYS_PATH};${env:PATH}"
+    },
+    "cmake.cmakePath": "D:/SystemTools/cmake-3.21.5-windows-x86_64/bin/cmake.exe",
+    // "cmake.additionalKits": [
+    //     "${config:LLVM_MINGW_PATH}/gcc.exe",
+    //     "${config:LLVM_MINGW_PATH}/clang.exe",
+    //     "${config:LLVM_MINGW_PATH}/g++.exe",
+    //     "${config:LLVM_MINGW_PATH}/clang++.exe"
+    // ],
+    "cmake.configureSettings": {
+        "CMAKE_TOOLCHAIN_FILE": "D:/SystemTools/vcpkg/scripts/buildsystems/vcpkg.cmake"
+    },
+    "cmake.autoSelectActiveFolder": false,
+    // Setting for Python
+    // Extension List : james-yu.latex-workshop,ms-vscode-remote.remote-containers
+    "python.condaPath": "${config:CONDA_PATH}",
+    "python.terminal.executeInFileDir": true,
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "python.defaultInterpreterPath": "${config:CONDA_PATH}/envs/tf2-py37/python.exe",
+    // Setting for matlab
+    // Extension List : bat67.matlab-extension-pack
+    //                  bramvanbilsen.matlab-code-run
+    //                  gimly81.matlab
+    //                  apommel.matlab-interactive-terminal
+    //                  affenwiesel.matlab-formatter
+    //                  slaier.matlab-complete
+    // set the enviornment variluable for python
+    // cd C:/Program Files/Polyspace/R2020a/extern/engines/python
+    // run python setup.py install
+    "[matlab]": {
+        "editor.formatOnPaste": true,
+        "editor.language.brackets": [
+            [
+                "[",
+                "]"
+            ],
+            [
+                "(",
+                ")"
+            ],
+            [
+                "{",
+                "}"
+            ]
+        ],
+        "editor.language.colorizedBracketPairs": [
+            [
+                "[",
+                "]"
+            ],
+            [
+                "(",
+                ")"
+            ],
+            [
+                "{",
+                "}"
+            ]
+        ],
+        "editor.suggestSelection": "recentlyUsedByPrefix",
+        "editor.rulers": [
+            75
+        ],
+        "files.encoding": "utf8"
+    },
+    "matlab.linterConfig": "",
+    "matlab.linterEncoding": "utf8",
+    "matlab.matlabpath": "${config:MATLAB_PATH}",
+    "matlab.mlintpath": "${config:MATLAB_PATH}/mlint.exe",
+    "[markdown]": {
+        // "editor.defaultFormatter": "yzhang.markdown-all-in-one",
+        "editor.quickSuggestions": {
+            "comments": "on",
+            "strings": "on",
+            "other": "on"
+        }
+    },
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.python"
+    },
+    "notebook.lineNumbers": "on",
+    "[powershell]": {
+        "editor.defaultFormatter": "ms-vscode.powershell",
+        "files.encoding": "utf8",
+        "files.autoGuessEncoding": false
+    },
+    // Setting for VIM
+    // gd- 跳转到定义。
+    // gq- 在视觉选择上重排和文字包装块的文本，保留注释风格。非常适合格式化文档注释。
+    // gb- 在它找到的下一个单词上添加另一个光标，该单词与光标下的单词相同。
+    // af- 可视模式命令，选择越来越大的文本块。例如，如果你有"blah （foo [bar 'ba|z']）"，那么它会首先选择'baz'。如果你再次按下，它会选择[bar 'baz']，如果你第三次这样做，它会选择"（foo [bar 'baz']）"。af
+    // gh- 相当于将鼠标悬停在光标所在的任何位置。方便查看类型和错误消息，而无需触及鼠标！
+    "vim.easymotion": true,
+    "vim.foldfix": true,
+    "vim.replaceWithRegister": true, // replace with reg x usage : gr{motion} grr
+    "vim.surround": true, // edit the surroud usage : cs"' ds" cs{[
+    "vim.enableNeovim": false,
+    "vim.sneak": false,
+    "vim.camelCaseMotion.enable": true,
+    "vim.autoSwitchInputMethod.enable": true,
+    "vim.autoindent": true,
+    "vim.useSystemClipboard": true,
+    "vim.autoSwitchInputMethod.defaultIM": "1033",
+    "vim.autoSwitchInputMethod.obtainIMCmd": "D:/SystemTools/im-select/im-select.exe",
+    "vim.autoSwitchInputMethod.switchIMCmd": "D:/SystemTools/im-select/im-select.exe {im}", // vim按esc键自动切为英文
+    "vim.debug.silent": false,
+    "vim.maxmapdepth": 1000,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.incsearch": true,
+    "vim.insertModeKeyBindings": [
+        // jj退出
+        {
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        },
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<C-c>"
+            ],
+            "commands": [
+                ":tabclose"
+            ]
+        },
+        {
+            "before": [
+                "<C-n>"
+            ],
+            "commands": [
+                ":nohl"
+            ]
+        },
+        {
+            "before": [
+                "K"
+            ],
+            "commands": [
+                "lineBreakInsert"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "H"
+            ],
+            "after": [
+                "^"
+            ]
+        },
+        {
+            "before": [
+                "L"
+            ],
+            "after": [
+                "$"
+            ]
+        },
+        {
+            "before": [
+                "z",
+                "z"
+            ],
+            "commands": [
+                "editor.toggleFold"
+            ]
+        },
+        // --- 文件命令
+        // 新建文件
+        {
+            "before": [
+                "<leader>",
+                "f",
+                "n"
+            ],
+            "commands": "welcome.showNewFileEntries"
+        },
+        // 打开文件
+        {
+            "before": [
+                "<leader>",
+                "f",
+                "o"
+            ],
+            "commands": "workbench.action.files.openFileFolder"
+        },
+        // 另存为文件
+        {
+            "before": [
+                "<leader>",
+                "f",
+                "e"
+            ],
+            "commands": "workbench.action.files.saveAs"
+        },
+        // 保存文件
+        {
+            "before": [
+                "<leader>",
+                "f",
+                "s"
+            ],
+            "commands": "workbench.action.files.save"
+        },
+        // 保存所有文件
+        {
+            "before": [
+                "<leader>",
+                "f",
+                "w"
+            ],
+            "commands": "workbench.action.files.saveAll"
+        },
+        // 关闭文件
+        {
+            "before": [
+                "<leader>",
+                "f",
+                "q"
+            ],
+            "commands": "workbench.action.closeActiveEditor"
+        },
+        // 关闭所有文件
+        {
+            "before": [
+                "<leader>",
+                "f",
+                "a"
+            ],
+            "commands": "workbench.action.closeAllEditors"
+        },
+        {
+            "before": [
+                "[",
+                "m"
+            ],
+            "commands": [
+                "editor.action.jumpToBracket"
+            ]
+        }
+    ],
+    "vim.visualModeKeyBindings": [
+        {
+            "before": [
+                ">"
+            ],
+            "commands": [
+                "editor.action.indentLines"
+            ]
+        },
+        {
+            "before": [
+                "<"
+            ],
+            "commands": [
+                "editor.action.outdentLines"
+            ]
+        },
+        {
+            "before": [
+                "[",
+                "m"
+            ],
+            "commands": [
+                "editor.action.selectToBracket"
+            ]
+        }
+    ],
+    "vim.leader": "<space>",
+    "vim.handleKeys": {
+        "ctrl+w": "true"
+    },
+    "leetcode.hint.configWebviewMarkdown": false,
+    "leetcode.workspaceFolder": "D:/leetcode",
+    "leetcode.defaultLanguage": "cpp",
+    "leetcode.hint.commandShortcut": false,
+    "leetcode.hint.commentDescription": false,
+    // setting for cpp
+    "[cpp]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools"
+    },
+    "C_Cpp.intelliSenseEngine": "Default",
+    "C_Cpp.formatting": "clangFormat",
+    "C_Cpp.default.includePath": [
+        "${default}",
+        "${config:VCPKG_PATH}/installed/x64-mingw-static/include",
+        "${config:LLVM_MINGW_PATH}/include",
+        "${config:LLVM_MINGW_PATH}/lib/clang/13.0.0/include/",
+        "${config:LLVM_MINGW_PATH}/include/c++/v1",
+        "${config:LLVM_MINGW_PATH}/include/c++/v1/experimental",
+        "${config:CUDA_PATH}/include",
+        "${config:VLD_PATH}/include"
+    ],
+    "C_Cpp.clang_format_fallbackStyle": "Visual Studio", // style when there is no file, style options Visual Studio, LLVM, Google, Chromium, Mozilla, WebKit, Microsoft, GNU, none
+    "C_Cpp.default.configurationProvider": "ms-vscode.cpptools",
+    "C_Cpp.default.defines": [
+        "_DEBUG",
+        "UNICODE",
+        "_UNICODE"
+    ],
+    "C_Cpp.default.compilerPath": "${config:LLVM_MINGW_PATH}/clang.exe",
+    // "C_Cpp.default.intelliSenseMode": "windows-clang-x64",
+    "C_Cpp.default.intelliSenseMode": "clang-x64",
+    "C_Cpp.intelliSenseCachePath": "D:/vscode_cppipch", // 修改预编译头保存位置
+    "C_Cpp.default.cStandard": "c11",
+    "C_Cpp.default.cppStandard": "c++11",
+    "C_Cpp.default.windowsSdkVersion": "10.0.19041.0",
+    "C_Cpp.codeAnalysis.clangTidy.enabled": false,
+    "C_Cpp.codeAnalysis.clangTidy.args": [],
+    "C_Cpp.codeAnalysis.clangTidy.checks.enabled": [],
+    "C_Cpp.clang_format_style": "file",
+    "lldb.consoleMode": "commands", // need to download codelldb extension
+    "tabnine.experimentalAutoImports": true,
+    // VsCodeCounter
+    "VSCodeCounter.exclude": [
+        "**/.gitignore",
+        "**/.vscode/**",
+        "**/node_modules/**",
+        "**/win64_build/**",
+        "**/build/**",
+        "**/demo/**",
+        "**/test_project_in_systemvue/**",
+        "**/vcpkg/**"
+    ],
+    "git.autofetch": true,
+    "files.associations": {
+        "*.json": "jsonc"
+    }
+}
