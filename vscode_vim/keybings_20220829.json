@@ -1,0 +1,299 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+    // 取消部分冲突的命令
+    {
+        "key": "ctrl+e",
+        "command": "-workbench.action.quickOpen"
+    },
+    // --- 全局命令
+    // -- 侧边栏命令
+    // 切换侧边栏显示状态
+    {
+        "key": "ctrl+g g",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+    // 显示任务列表
+    {
+        "key": "ctrl+g t",
+        "command": "workbench.action.tasks.runTask",
+    },
+    // 显示命令面板
+    {
+        "key": "ctrl+g c",
+        "command": "workbench.action.showCommands"
+    },
+    // 打开设置页面
+    {
+        "key": "ctrl+g s",
+        "command": "workbench.action.openSettingsJson"
+    },
+    // 打开热键映射
+    {
+        "key": "ctrl+g k",
+        "command": "workbench.action.openGlobalKeybindingsFile"
+    },
+    // 打开一个目录
+    {
+        "key": "ctrl+g d",
+        "command": "workbench.action.files.openFolder"
+    },
+    // 打开vscode搜索
+    {
+        "key": "ctrl+g f",
+        "command": "actions.find"
+    },
+    // 打开最近记录
+    {
+        "key": "ctrl+g h",
+        "command": "workbench.action.openRecent"
+    },
+    // 新建vscode实例
+    {
+        "key": "ctrl+g n",
+        "command": "workbench.action.newWindow"
+    },
+    // 关闭vscode实例
+    {
+        "key": "ctrl+g q",
+        "command": "workbench.action.closeWindow"
+    },
+    // --- 面板命令
+    // 打开problem
+    {
+        "key": "alt+p p",
+        "command": "workbench.panel.markers.view.focus"
+    },
+    // 打开output
+    {
+        "key": "alt+p o",
+        "command": "workbench.action.output.toggleOutput",
+    },
+    // 打开terminal
+    {
+        "key": "alt+p t",
+        "command": "workbench.action.terminal.toggleTerminal"
+    },
+    // 打开debug
+    {
+        "key": "alt+p d",
+        "command": "workbench.debug.action.toggleRepl"
+    },
+    // 显示文件资源管理器
+    {
+        "key": "alt+n 1",
+        "command": "workbench.files.action.focusFilesExplorer"
+    },
+    // 显示全局搜索
+    {
+        "key": "alt+n 2",
+        "command": "workbench.action.replaceInFiles"
+    },
+    // 显示git
+    {
+        "key": "alt+n 3",
+        "command": "workbench.view.scm",
+        "when": "workbench.scm.active"
+    },
+    // 显示debug
+    {
+        "key": "alt+n 4",
+        "command": "workbench.view.debug",
+        "when": "viewContainer.workbench.view.debug.enabled"
+    },
+    // 显示remote
+    {
+        "key": "alt+n 5",
+        "command": "workbench.view.remote"
+    },
+    // 显示Docker
+    {
+        "key": "alt+n 6",
+        "command": "workbench.view.extension.dockerView"
+    },
+    // 显示CMake
+    {
+        "key": "alt+n 7",
+        "command": "workbench.view.extension.cmake__viewContainer"
+    },
+    // 显示leetcode
+    {
+        "key": "alt+n 8",
+        "command": "workbench.view.extension.leetcode"
+    },
+    // 显示插件商店
+    {
+        "key": "alt+n 9",
+        "command": "workbench.view.extensions",
+        "when": "viewContainer.workbench.view.extensions.enabled"
+    },
+    // --- 面板命令
+    // 切换面板显示状态
+    {
+        "key": "ctrl+p",
+        "command": "workbench.action.togglePanel",
+        "when": "workbench.panel.markers.view.active"
+    },
+    // --- 编辑区命令
+    // 关闭当前选项卡或分屏
+    {
+        "key": "ctrl+q",
+        "command": "workbench.action.closeActiveEditor",
+        "when": "editorFocus || inSettingsEditor || inKeybindings"
+    },
+    // 聚集在第一个选项卡中
+    {
+        "key": "ctrl+e",
+        "command": "workbench.action.focusFirstEditorGroup",
+        "when": "!editorFocus"
+    },
+    // 切换到上一个选项卡
+    {
+        "key": "ctrl+,",
+        "command": "workbench.action.previousEditor",
+        "when": "editorTextFocus  || inKeybindings || inSettingsEditor"
+    },
+    // 切换到下一个选项卡
+    {
+        "key": "ctrl+.",
+        "command": "workbench.action.nextEditor",
+        "when": "editorTextFocus || inKeybindings || inSettingsEditor"
+    },
+    // 拆分一个上下分屏
+    {
+        "key": "ctrl+w s",
+        "command": "workbench.action.splitEditorDown",
+        "when": "editorTextFocus"
+    },
+    // 拆分一个左右分屏
+    {
+        "key": "ctrl+w v",
+        "command": "workbench.action.splitEditor",
+        "when": "editorTextFocus"
+    },
+    // 将光标向上动1屏
+    {
+        "key": "ctrl+w k",
+        "command": "workbench.action.focusAboveGroup",
+        "when": "editorTextFocus"
+    },
+    // 将光标向下动1屏
+    {
+        "key": "ctrl+w j",
+        "command": "workbench.action.focusBelowGroup",
+        "when": "editorTextFocus"
+    },
+    // 将光标向左移动1屏
+    {
+        "key": "ctrl+w h",
+        "command": "workbench.action.focusLeftGroup",
+        "when": "editorTextFocus"
+    },
+    // 将光标向右移动1屏
+    {
+        "key": "ctrl+w l",
+        "command": "workbench.action.focusRightGroup",
+        "when": "editorTextFocus"
+    },
+    // --- 代码编辑命令
+    // 触发参数提示
+    {
+        "key": "ctrl+j",
+        "command": "editor.action.triggerParameterHints",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "closeParameterHints",
+        "when": "editorFocus && parameterHintsVisible"
+    },
+    // 触发建议提示
+    {
+        "key": "ctrl+h",
+        "command": "editor.action.triggerSuggest",
+        "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+h",
+        "command": "hideSuggestWidget",
+        "when": "suggestWidgetVisible && textInputFocus"
+    },
+    // 移动到下一个建议
+    {
+        "key": "ctrl+n",
+        "command": "selectNextSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+    },
+    // 移动到上一个建议
+    {
+        "key": "ctrl+p",
+        "command": "selectPrevSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+    },
+    // 跳转到跳转列表的第N个新位置
+    // ctrl + i
+    // 跳转到跳转列表的第N个旧位置
+    // ctrl + o
+    // 显示跳转列表
+    // :ju[mps]
+    // 放大字体
+    {
+        "key": "ctrl+=",
+        "command": "editor.action.fontZoomIn",
+        "when": "editorFocus"
+    },
+    // 缩小字体
+    {
+        "key": "ctrl+-",
+        "command": "editor.action.fontZoomOut",
+        "when": "editorFocus"
+    },
+    // --- 资源管理器中对文件或目录的操作
+    // 新建文件
+    {
+        "key": "i",
+        "command": "explorer.newFile",
+        "when": " explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus "
+    },
+    // 新建目录
+    {
+        "key": "o",
+        "command": "explorer.newFolder",
+        "when": " explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus "
+    },
+    // 刷新资源管理器
+    {
+        "key": "r",
+        "command": "workbench.files.action.refreshFilesExplorer",
+        "when": " explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus "
+    },
+    // 重命名文件或目录
+    {
+        "key": "a",
+        "command": "renameFile",
+        "when": " explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus "
+    },
+    // 删除文件或目录
+    {
+        "key": "d",
+        "command": "deleteFile",
+        "when": " explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus "
+    },
+    // 剪切文件或目录
+    {
+        "key": "x",
+        "command": "filesExplorer.cut",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+    },
+    // 复制文件或目录
+    {
+        "key": "y",
+        "command": "filesExplorer.copy",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
+    },
+    // 粘贴文件或目录
+    {
+        "key": "p",
+        "command": "filesExplorer.paste",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+    },
+]
