@@ -1,0 +1,9 @@
+Windows Registry Editor Version 5.00
+
+[-HKEY_CLASSES_ROOT\*\shell\Le Petit Prince]
+
+[-HKEY_CLASSES_ROOT\Directory\shell\Le Petit Prince]
+
+[-HKEY_CLASSES_ROOT\Directory\Background\shell\Le Petit Prince]
+
+[-HKEY_CLASSES_ROOT\exefile\shell\Le Petit Prince]

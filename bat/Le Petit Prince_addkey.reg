@@ -1,0 +1,175 @@
+Windows Registry Editor Version 5.00
+
+; Le Petit Prince
+[HKEY_CLASSES_ROOT\*\shell\Le Petit Prince]
+"MUIVerb"="Le Petit Prince"
+"SubCommands"=""
+
+; Le Petit Prince
+[HKEY_CLASSES_ROOT\Directory\shell\Le Petit Prince]
+"MUIVerb"="Le Petit Prince"
+"SubCommands"=""
+
+; Le Petit Prince
+[HKEY_CLASSES_ROOT\Directory\Background\shell\Le Petit Prince]
+"MUIVerb"="Le Petit Prince"
+"SubCommands"=""
+
+; Le Petit Prince
+[HKEY_CLASSES_ROOT\exefile\shell\Le Petit Prince]
+"MUIVerb"="Le Petit Prince"
+"SubCommands"=""
+
+; ------------------ 获取文件hash ---------------------------
+; Get File Hash
+[HKEY_CLASSES_ROOT\*\shell\Le Petit Prince\shell\getHash]
+"MUIVerb"="Get Hash of file"
+"SubCommands"=""
+
+; SHA1
+[HKEY_CLASSES_ROOT\*\shell\Le Petit Prince\shell\getHash\shell\SHA1]
+"MUIVerb"="SHA1"
+[HKEY_CLASSES_ROOT\*\shell\Le Petit Prince\shell\getHash\shell\SHA1\command]
+@="powershell.exe -NoExit -NonInteractive Get-FileHash -LiteralPath '%1' -Algorithm SHA1 | Format-List"
+
+; SHA256
+[HKEY_CLASSES_ROOT\*\shell\Le Petit Prince\shell\getHash\shell\SHA256]
+"MUIVerb"="SHA256"
+[HKEY_CLASSES_ROOT\*\shell\Le Petit Prince\shell\getHash\shell\SHA256\command]
+@="powershell.exe -NoExit -NonInteractive Get-FileHash -LiteralPath '%1' -Algorithm SHA256 | Format-List"
+
+; SHA512
+[HKEY_CLASSES_ROOT\*\shell\Le Petit Prince\shell\getHash\shell\SHA512]
+"MUIVerb"="SHA512"
+[HKEY_CLASSES_ROOT\*\shell\Le Petit Prince\shell\getHash\shell\SHA512\command]
+@="powershell.exe -NoExit -NonInteractive Get-FileHash -LiteralPath '%1' -Algorithm SHA512 | Format-List"
+
+; MD5
+[HKEY_CLASSES_ROOT\*\shell\Le Petit Prince\shell\getHash\shell\MD5]
+"MUIVerb"="MD5"
+[HKEY_CLASSES_ROOT\*\shell\Le Petit Prince\shell\getHash\shell\MD5\command]
+@="powershell.exe -NoExit -NonInteractive Get-FileHash -LiteralPath '%1' -Algorithm MD5 | Format-List"
+
+; ------------------ 获取exe文件hash ---------------------------
+; Get File Hash
+[HKEY_CLASSES_ROOT\exefile\shell\Le Petit Prince\shell\getHash]
+"MUIVerb"="Get Hash of file"
+"SubCommands"=""
+
+; SHA1
+[HKEY_CLASSES_ROOT\exefile\shell\Le Petit Prince\shell\getHash\shell\SHA1]
+"MUIVerb"="SHA1"
+[HKEY_CLASSES_ROOT\exefile\shell\Le Petit Prince\shell\getHash\shell\SHA1\command]
+@="powershell.exe -NoExit -NonInteractive Get-FileHash -LiteralPath '%1' -Algorithm SHA1 | Format-List"
+
+; SHA256
+[HKEY_CLASSES_ROOT\exefile\shell\Le Petit Prince\shell\getHash\shell\SHA256]
+"MUIVerb"="SHA256"
+[HKEY_CLASSES_ROOT\exefile\shell\Le Petit Prince\shell\getHash\shell\SHA256\command]
+@="powershell.exe -NoExit -NonInteractive Get-FileHash -LiteralPath '%1' -Algorithm SHA256 | Format-List"
+
+; SHA512
+[HKEY_CLASSES_ROOT\exefile\shell\Le Petit Prince\shell\getHash\shell\SHA512]
+"MUIVerb"="SHA512"
+[HKEY_CLASSES_ROOT\exefile\shell\Le Petit Prince\shell\getHash\shell\SHA512\command]
+@="powershell.exe -NoExit -NonInteractive Get-FileHash -LiteralPath '%1' -Algorithm SHA512 | Format-List"
+
+; MD5
+[HKEY_CLASSES_ROOT\exefile\shell\Le Petit Prince\shell\getHash\shell\MD5]
+"MUIVerb"="MD5"
+[HKEY_CLASSES_ROOT\exefile\shell\Le Petit Prince\shell\getHash\shell\MD5\command]
+@="powershell.exe -NoExit -NonInteractive Get-FileHash -LiteralPath '%1' -Algorithm MD5 | Format-List"
+
+; ------------------ VScode打开文件 ---------------------------
+; Open files
+[HKEY_CLASSES_ROOT\*\shell\Le Petit Prince\shell\Open with VS Code]
+@="Edit with VS Code"
+Icon"="C:\\Users\\PC\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe,0"
+[HKEY_CLASSES_ROOT\*\shell\Le Petit Prince\shell\Open with VS Code\command]
+@="\"C:\\Users\\PC\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe\" \"%1\""
+; This will make it appear when you right click ON a folder
+; The "Icon" line can be removed if you don't want the icon to appear
+[HKEY_CLASSES_ROOT\Directory\shell\Le Petit Prince\shell\Open with VS Code]
+@="Open Folder as VS Code Project"
+"Icon"="\"C:\\Users\\PC\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe\",0"
+[HKEY_CLASSES_ROOT\Directory\shell\Le Petit Prince\shell\Open with VS Code\command]
+@="\"C:\\Users\\PC\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe\" \"%1\""
+; This will make it appear when you right click INSIDE a folder
+; The "Icon" line can be removed if you don't want the icon to appear
+[HKEY_CLASSES_ROOT\Directory\Background\shell\Le Petit Prince\shell\Open with VS Code]
+@="Open Folder as VS Code Project"
+"Icon"="\"C:\\Users\\PC\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe\",0"
+[HKEY_CLASSES_ROOT\Directory\Background\shell\Le Petit Prince\shell\Open with VS Code\command]
+@="\"C:\\Users\\PC\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe\" \"%V\""
+
+; ------------------ Visual Studio打开文件 ---------------------------
+
+
+[HKEY_CLASSES_ROOT\Directory\shell\AnyCode]
+@="@C:\\Program Files (x86)\\Common Files\\Microsoft Shared\\MSEnv\\1033\\VSLauncherUI.dll,-1002"
+"Icon"="C:\\Program Files (x86)\\Common Files\\Microsoft Shared\\MSEnv\\VSLauncher.exe,-105"
+"LegacyDisable"=""
+
+[HKEY_CLASSES_ROOT\Directory\shell\AnyCode\command]
+@="\"C:\\Program Files (x86)\\Common Files\\Microsoft Shared\\MSEnv\\VSLauncher.exe\" \"%1\" source:Explorer"
+
+; ------------------ 复制文件地址  ---------------------------
+
+[HKEY_CLASSES_ROOT\*\shell\Le Petit Prince\shell\CopyFilePathPowershell]
+@="Copy File path powershell"
+[HKEY_CLASSES_ROOT\*\shell\Le Petit Prince\shell\CopyFilePathPowershell\command]
+@="powershell.exe -NonInteractive -Command Set-Clipboard '%1' "
+[HKEY_CLASSES_ROOT\Directory\shell\Le Petit Prince\shell\CopyFilePathPowershell]
+@="Copy File path powershell"
+[HKEY_CLASSES_ROOT\Directory\shell\Le Petit Prince\shell\CopyFilePathPowershell\command]
+@="powershell.exe -NonInteractive -Command Set-Clipboard '%1' "
+
+[HKEY_CLASSES_ROOT\*\shell\Le Petit Prince\shell\CopyFilePathCmd]
+@="Copy File path cmd"
+[HKEY_CLASSES_ROOT\*\shell\Le Petit Prince\shell\CopyFilePathCmd\command]
+@="cmd.exe /c echo %1|clip"
+[HKEY_CLASSES_ROOT\Directory\shell\Le Petit Prince\shell\CopyFilePathCmd]
+@="Copy File path cmd"
+[HKEY_CLASSES_ROOT\Directory\shell\Le Petit Prince\shell\CopyFilePathCmd\command]
+@="cmd.exe /c echo %1|clip"
+
+; it seemed that we cant change the path, that will leads to failed
+[HKEY_CLASSES_ROOT\*\shell\Le Petit Prince\shell\windows.copyaspath]
+@="Copy File path"
+"Icon"="imageres.dll,-5302"
+"InvokeCommandOnSelection"=dword:00000001
+"VerbHandler"="{f3d06e7c-1e45-4a26-847e-f9fcdee59be0}"
+"VerbName"="Copy File Path"
+[HKEY_CLASSES_ROOT\Directory\shell\Le Petit Prince\shell\windows.copyaspath]
+@="Copy File path"
+"Icon"="imageres.dll,-5302"
+"InvokeCommandOnSelection"=dword:00000001
+"VerbHandler"="{f3d06e7c-1e45-4a26-847e-f9fcdee59be0}"
+"VerbName"="Copy File Path"
+
+
+; ------------------ 管理员取得所有权  ---------------------------
+
+[HKEY_CLASSES_ROOT\*\shell\Le Petit Prince\shell\TakeAuthority]
+@="Take Ownership for administrators"
+"NoWorkingDirectory"=""
+
+[HKEY_CLASSES_ROOT\*\shell\Le Petit Prince\shell\TakeAuthority\command]
+@="cmd.exe /c takeown /f \"%1\" && icacls \"%1\" /grant administrators:F"
+"IsolatedCommand"="cmd.exe /c takeown /f \"%1\" && icacls \"%1\" /grant administrators:F"
+
+[HKEY_CLASSES_ROOT\exefile\shell\Le Petit Prince\shell\TakeAuthority]
+@="Take Ownership for administrators"
+"NoWorkingDirectory"=""
+
+[HKEY_CLASSES_ROOT\exefile\shell\Le Petit Prince\shell\TakeAuthority\command]
+@="cmd.exe /c takeown /f \"%1\" && icacls \"%1\" /grant administrators:F"
+"IsolatedCommand"="cmd.exe /c takeown /f \"%1\" && icacls \"%1\" /grant administrators:F"
+
+[HKEY_CLASSES_ROOT\Directory\shell\Le Petit Prince\shell\TakeAuthority]
+@="Take Ownership for administrators"
+"NoWorkingDirectory"=""
+
+[HKEY_CLASSES_ROOT\Directory\shell\Le Petit Prince\shell\TakeAuthority\command]
+@="cmd.exe /c takeown /f \"%1\" /r /d y && icacls \"%1\" /grant administrators:F /t"
+"IsolatedCommand"="cmd.exe /c takeown /f \"%1\" /r /d y && icacls \"%1\" /grant administrators:F /t"
